@@ -39,7 +39,7 @@
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(520px, 1fr)); gap: 20px; margin-bottom: 8px; }
   .card { background: #fff; border-radius: 10px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
   .dim-row { display: flex; align-items: center; margin-bottom: 10px; min-height: 34px; }
-  .dim-label { width: 280px; flex-shrink: 0; color: #4a5568; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; }
+  .dim-label { width: 340px; flex-shrink: 0; color: #4a5568; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; }
   .dim-label.empty { color: #cbd5e0; }
   .dim-dots { display: flex; gap: 6px; flex-wrap: wrap; }
   .dot { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #fff; cursor: default; position: relative; }
@@ -50,7 +50,7 @@
   .dot.uncertain { border: 2px dashed rgba(255,255,255,0.5); }
   .dot:hover::after { content: attr(data-name); position: absolute; bottom: -22px; left: 50%; transform: translateX(-50%); background: #2d3748; color: #fff; font-size: 10px; padding: 2px 8px; border-radius: 4px; white-space: nowrap; z-index: 10; font-weight: 400; }
   .bar-row { display: flex; align-items: center; margin-bottom: 8px; font-size: 13px; }
-  .bar-label { width: 280px; flex-shrink: 0; color: #4a5568; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .bar-label { width: 340px; flex-shrink: 0; color: #4a5568; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; white-space: nowrap; }
   .bar-label.zero { color: #cbd5e0; }
   .bar-track { flex: 1; background: #edf2f7; border-radius: 4px; height: 22px; position: relative; overflow: hidden; }
   .bar-fill { height: 100%; border-radius: 4px; background: #4299e1; display: flex; align-items: center; padding-left: 8px; font-size: 11px; color: #fff; font-weight: 600; min-width: fit-content; }
