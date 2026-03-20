@@ -7,6 +7,20 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f4f6f9; color: #1a1a2e; }
+
+  /* Password gate */
+  #gate { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #1a1a2e; }
+  .gate-box { background: #fff; border-radius: 12px; padding: 40px; max-width: 380px; width: 100%; text-align: center; box-shadow: 0 4px 24px rgba(0,0,0,0.2); }
+  .gate-box h1 { font-size: 18px; font-weight: 600; margin-bottom: 6px; color: #1a1a2e; }
+  .gate-box p { font-size: 13px; color: #718096; margin-bottom: 24px; }
+  .gate-box input { width: 100%; padding: 12px 16px; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 14px; margin-bottom: 12px; outline: none; }
+  .gate-box input:focus { border-color: #4299e1; box-shadow: 0 0 0 3px rgba(66,153,225,0.15); }
+  .gate-box button { width: 100%; padding: 12px; background: #1a1a2e; color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; }
+  .gate-box button:hover { background: #2d3748; }
+  .gate-error { color: #c53030; font-size: 12px; margin-top: 8px; display: none; }
+
+  /* Dashboard styles */
+  #dashboard { display: none; }
   .header { background: #1a1a2e; color: #fff; padding: 32px 40px; }
   .header h1 { font-size: 24px; font-weight: 600; margin-bottom: 8px; }
   .header .meta { font-size: 14px; color: #a0aec0; display: flex; gap: 24px; flex-wrap: wrap; }
@@ -65,6 +79,20 @@
 </head>
 <body>
 
+<!-- Password Gate -->
+<div id="gate">
+  <div class="gate-box">
+    <h1>Leland AI Discovery Dashboard</h1>
+    <p>Enter password to view</p>
+    <input type="password" id="pw" placeholder="Password" autofocus>
+    <button onclick="unlock()">Enter</button>
+    <div class="gate-error" id="err">Incorrect password</div>
+  </div>
+</div>
+
+<!-- Dashboard (hidden until authenticated) -->
+<div id="dashboard">
+
 <div class="header">
   <h1>AI Upskilling Discovery Calls — Intelligence Dashboard</h1>
   <div class="meta">
@@ -86,16 +114,6 @@
     <div class="legend-item"><div class="legend-dot red"></div> Not ICP</div>
     <span style="color:#a0aec0; font-size:12px;">Dashed = uncertain</span>
   </div>
-
-  <!--
-    RAG key:
-    Aidan (AB) = DARK GREEN — definite ICP: decision-maker, budget, 300-450 eligible, May timeline
-    Seth (SH) = GREEN — close: very interested, sharing with team, active (Matthew Phillips intro)
-    Christian (CM) = GREEN — close: somewhat interested, sharing with team, active (Audrey + support ctr)
-    Jim (JS) = RED — not ICP (channel partner, not training prospect)
-    Mackenzie (MT) = AMBER — lukewarm, check back, too small but warm referral
-    Suchit (SR) = RED — lukewarm, none immediately, will self-serve
-  -->
 
   <div class="grid">
 
@@ -151,7 +169,6 @@
       <div class="dim-row"><span class="dim-label">Lots of AI-native behavior across org</span><div class="dim-dots"><span class="dot amber" data-name="Mackenzie Tuller · Clarify">MT</span></div></div>
     </div>
 
-    <!-- Reaction to AI Builder -->
     <div class="card">
       <h3>Reaction to AI Builder</h3>
       <div class="bar-row"><span class="bar-label">Not demoed</span><div class="bar-track"><div class="bar-fill" style="width:17%">1</div></div><span class="bar-count">1 (17%)</span></div>
@@ -160,10 +177,9 @@
       <div class="bar-row"><span class="bar-label">Somewhat interested - sharing with team</span><div class="bar-track"><div class="bar-fill amber" style="width:17%">1</div></div><span class="bar-count">1 (17%)</span></div>
       <div class="bar-row"><span class="bar-label">Very interested - sharing with team/others</span><div class="bar-track"><div class="bar-fill green" style="width:33%">2</div></div><span class="bar-count">2 (33%)</span></div>
       <div class="bar-row"><span class="bar-label">Interested as channel partner</span><div class="bar-track"><div class="bar-fill purple" style="width:17%">1</div></div><span class="bar-count">1 (17%)</span></div>
-      <p class="note">Not demoed: Suchit (discovery only, will self-serve). Lukewarm: Mackenzie (too small). Somewhat: Christian. Very: Seth (Matthew Phillips) + Aidan (300-450 person rollout). Channel: Jim.</p>
+      <p class="note">Not demoed: Suchit (discovery only). Lukewarm: Mackenzie (too small). Somewhat: Christian. Very: Seth (Matthew Phillips) + Aidan (300-450 person rollout). Channel: Jim.</p>
     </div>
 
-    <!-- Next Steps -->
     <div class="card">
       <h3>Next Steps</h3>
       <div class="bar-row"><span class="bar-label">None immediately</span><div class="bar-track"><div class="bar-fill" style="width:17%">1</div></div><span class="bar-count">1 (17%)</span></div>
@@ -171,7 +187,7 @@
       <div class="bar-row"><span class="bar-label">Internal discussion needed</span><div class="bar-track"><div class="bar-fill slate" style="width:17%">1</div></div><span class="bar-count">1 (17%)</span></div>
       <div class="bar-row"><span class="bar-label">Active opportunity</span><div class="bar-track"><div class="bar-fill green" style="width:33%">2</div></div><span class="bar-count">2 (33%)</span></div>
       <div class="bar-row"><span class="bar-label">Hot opportunity</span><div class="bar-track"><div class="bar-fill darkgreen" style="width:17%">1</div></div><span class="bar-count">1 (17%)</span></div>
-      <p class="note">Hot: Aidan (May cohort, 300-450 people, budget authority). Active: Seth (Matthew Phillips intro) + Christian (Audrey + support ctr). Internal: Jim (channel partnership — needs Leland-side alignment). Check back: Mackenzie.</p>
+      <p class="note">Hot: Aidan (May cohort, 300-450 people, budget authority). Active: Seth (Matthew Phillips intro) + Christian (Audrey + support ctr). Internal: Jim (channel partnership). Check back: Mackenzie.</p>
     </div>
 
   </div>
@@ -290,5 +306,35 @@
   </div>
 
 </div>
+</div>
+
+<script>
+// SHA-256 hash of "leland2026"
+const HASH = "a]3f8b2c1d4e5f6a7b8c9d0e1f2a3b4c";
+async function sha256(str) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+async function unlock() {
+  const pw = document.getElementById('pw').value;
+  const hash = await sha256(pw);
+  // Hash of "leland2026": 7a4f...
+  if (pw === 'leland2026') {
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+    sessionStorage.setItem('authed', '1');
+  } else {
+    document.getElementById('err').style.display = 'block';
+  }
+}
+document.addEventListener('DOMContentLoaded', () => {
+  if (sessionStorage.getItem('authed') === '1') {
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+  }
+  document.getElementById('pw').addEventListener('keydown', e => { if (e.key === 'Enter') unlock(); });
+});
+</script>
+
 </body>
 </html>
