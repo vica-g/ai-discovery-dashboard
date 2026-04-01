@@ -95,11 +95,7 @@
 
 <div class="header">
   <h1>AI Upskilling Discovery Calls — Intelligence Dashboard</h1>
-  <div class="meta">
-    <span><strong>16</strong>&nbsp;calls tracked</span>
-    <span>Date range: Mar 16, 2026 → Mar 30, 2026</span>
-    <span>Last updated: Mar 30, 2026</span>
-  </div>
+  <div class="meta" id="header-meta"></div>
 </div>
 
 <div class="container">
@@ -115,105 +111,7 @@
     <span style="color:#a0aec0; font-size:12px;">Dashed = uncertain</span>
   </div>
 
-  <!--
-    RAG key:
-    Aidan (AB) = DARK GREEN — definite ICP: decision-maker, budget, 300-450 eligible, May timeline
-    Seth (SH) = GREEN — close: very interested, sharing with team, active (Matthew Phillips intro)
-    Christian (CM) = GREEN — close: somewhat interested, sharing with team, active (Audrey + support ctr)
-    Mansoor (MR) = GREEN — close: very interested, sharing with SVP, active; pre-champion, not yet decision-maker
-    Nick (NM) = GREEN — close: portco distribution play, Skylar intro agreed; not a direct customer but high leverage
-    Andrew (AnB) = GREEN — close: personally committed to L2, sharing with corporate initiatives team, active
-    Michael (MD) = GREEN — close: very interested, team ask, active; 2nd small PE firm; no internal champion = more compelling
-    Jim (JS) = RED — not ICP (channel partner, not training prospect)
-    Mackenzie (MT) = AMBER — lukewarm, check back, too small but warm referral
-    Suchit (SR) = RED — lukewarm, none immediately, will self-serve
-    Pek Nan (PT) = RED — not ICP (gaming too bespoke, product not demoed)
-    Jack (JE) = AMBER — lukewarm; solo founder, too busy right now, no org play
-    Laura (LC) = AMBER — partial fit; DoorDash too advanced/self-sufficient, but new verticals AI lead referral is real
-    Johanna (JEr) = GREEN — close to ICP: committed to April cohort, champion-first model, active; compliance-aware approach
-    Omar (OG) = AMBER — consumer play only; search-fund CEO in traditional service biz, personally interested, no B2B angle yet
-    Karen (KB) = AMBER — too self-sufficient internally; AI captain + bi-weekly virtuals already covers what we'd sell; possible L2 play for commercial team later
-  -->
-
-  <div class="grid">
-
-    <div class="card">
-      <h3>Job Role Type</h3>
-      <div class="dim-row"><span class="dim-label">Founder</span><div class="dim-dots"><span class="dot red" data-name="Jim Schraepfer">JS</span> <span class="dot amber" data-name="Jack Elzinga · Middle Door Homes">JE</span> <span class="dot amber" data-name="Omar Garza · Sector Seven Energy">OG</span> <span class="dot amber" data-name="Karen Baert · Ammobia">KB</span></div></div>
-      <div class="dim-row"><span class="dim-label">C-Suite</span><div class="dim-dots"><span class="dot red" data-name="Suchit Rout">SR</span></div></div>
-      <div class="dim-row"><span class="dim-label">VP</span><div class="dim-dots"><span class="dot amber" data-name="Mackenzie Tuller">MT</span> <span class="dot darkgreen" data-name="Aidan Barrow · Rula">AB</span> <span class="dot green" data-name="Johanna Eriksson · Howgood">JEr</span></div></div>
-      <div class="dim-row"><span class="dim-label">Director</span><div class="dim-dots"><span class="dot green" data-name="Christian Manchester">CM</span> <span class="dot green" data-name="Seth Hoesman">SH</span> <span class="dot green" data-name="Mansoor Rathore · Stepful">MR</span> <span class="dot red" data-name="Pek Nan Tan · Activision Blizzard">PT</span> <span class="dot green" data-name="Nick Mahowald · Growth Street Partners">NM</span> <span class="dot green" data-name="Andrew Barnett · Datavant">AnB</span> <span class="dot green uncertain" data-name="Michael DeSantis · Riverspan Partners (Principal)">MD</span></div></div>
-      <div class="dim-row"><span class="dim-label">Manager</span><div class="dim-dots"><span class="dot amber" data-name="Laura Cappellin · DoorDash">LC</span></div></div>
-      <div class="dim-row"><span class="dim-label empty">IC</span><div class="dim-dots"></div></div>
-      <div class="dim-row"><span class="dim-label empty">Other</span><div class="dim-dots"></div></div>
-    </div>
-
-    <div class="card">
-      <h3>Company Size</h3>
-      <div class="dim-row"><span class="dim-label">1-9</span><div class="dim-dots"><span class="dot amber" data-name="Jack Elzinga · Middle Door Homes (solo founder)">JE</span> <span class="dot amber uncertain" data-name="Omar Garza · Sector Seven Energy (uncertain)">OG</span></div></div>
-      <div class="dim-row"><span class="dim-label">10-49</span><div class="dim-dots"><span class="dot red" data-name="Suchit Rout · No-IP (40)">SR</span> <span class="dot amber" data-name="Mackenzie Tuller · Clarify (20)">MT</span> <span class="dot red" data-name="Jim Schraepfer · Essendis (11)">JS</span> <span class="dot green" data-name="Nick Mahowald · Growth Street Partners (~10)">NM</span> <span class="dot green" data-name="Michael DeSantis · Riverspan Partners (~13)">MD</span> <span class="dot green" data-name="Johanna Eriksson · Howgood (40)">JEr</span> <span class="dot amber" data-name="Karen Baert · Ammobia (15)">KB</span></div></div>
-      <div class="dim-row"><span class="dim-label">50-249</span><div class="dim-dots"><span class="dot green" data-name="Mansoor Rathore · Stepful (50-60)">MR</span></div></div>
-      <div class="dim-row"><span class="dim-label">250-999</span><div class="dim-dots"><span class="dot darkgreen" data-name="Aidan Barrow · Rula (600)">AB</span></div></div>
-      <div class="dim-row"><span class="dim-label">1,000-9,999</span><div class="dim-dots"><span class="dot red" data-name="Pek Nan Tan · Activision Blizzard (~5K)">PT</span> <span class="dot green" data-name="Andrew Barnett · Datavant (~1K)">AnB</span></div></div>
-      <div class="dim-row"><span class="dim-label">10,000+</span><div class="dim-dots"><span class="dot green" data-name="Christian Manchester · Flynn (80K)">CM</span> <span class="dot green" data-name="Seth Hoesman · Asurion (20K)">SH</span> <span class="dot amber" data-name="Laura Cappellin · DoorDash (~25K)">LC</span></div></div>
-    </div>
-
-    <div class="card">
-      <h3>Company Industry</h3>
-      <div class="dim-row"><span class="dim-label">Financial Services</span><div class="dim-dots"><span class="dot green" data-name="Seth Hoesman · Asurion">SH</span> <span class="dot green" data-name="Nick Mahowald · Growth Street Partners (PE)">NM</span> <span class="dot green" data-name="Michael DeSantis · Riverspan Partners (PE)">MD</span></div></div>
-      <div class="dim-row"><span class="dim-label">Healthcare</span><div class="dim-dots"><span class="dot darkgreen" data-name="Aidan Barrow · Rula (healthtech)">AB</span> <span class="dot green" data-name="Andrew Barnett · Datavant (healthcare data)">AnB</span></div></div>
-      <div class="dim-row"><span class="dim-label">Tech</span><div class="dim-dots"><span class="dot red" data-name="Suchit Rout · No-IP">SR</span> <span class="dot amber" data-name="Mackenzie Tuller · Clarify">MT</span> <span class="dot amber" data-name="Laura Cappellin · DoorDash">LC</span> <span class="dot green" data-name="Johanna Eriksson · Howgood (sustainability SaaS)">JEr</span></div></div>
-      <div class="dim-row"><span class="dim-label">Professional Services</span><div class="dim-dots"><span class="dot red" data-name="Jim Schraepfer · Essendis">JS</span> <span class="dot amber" data-name="Omar Garza · Sector Seven Energy (energy brokerage)">OG</span></div></div>
-      <div class="dim-row"><span class="dim-label">Education</span><div class="dim-dots"><span class="dot green" data-name="Mansoor Rathore · Stepful (EdTech / healthcare careers)">MR</span></div></div>
-      <div class="dim-row"><span class="dim-label">Food & Beverage / QSR</span><div class="dim-dots"><span class="dot green" data-name="Christian Manchester · Flynn Group">CM</span></div></div>
-      <div class="dim-row"><span class="dim-label empty">Government & Defense</span><div class="dim-dots"></div></div>
-      <div class="dim-row"><span class="dim-label empty">Nonprofit</span><div class="dim-dots"></div></div>
-      <div class="dim-row"><span class="dim-label">Media & Entertainment</span><div class="dim-dots"><span class="dot red" data-name="Pek Nan Tan · Activision Blizzard">PT</span></div></div>
-      <div class="dim-row"><span class="dim-label">Real Estate</span><div class="dim-dots"><span class="dot amber" data-name="Jack Elzinga · Middle Door Homes">JE</span></div></div>
-      <div class="dim-row"><span class="dim-label">Cleantech / Deep Tech</span><div class="dim-dots"><span class="dot amber" data-name="Karen Baert · Ammobia (clean ammonia / hard tech)">KB</span></div></div>
-    </div>
-
-    <div class="card">
-      <h3>Personal AI Competency</h3>
-      <div class="dim-row"><span class="dim-label empty">Not using at all</span><div class="dim-dots"></div></div>
-      <div class="dim-row"><span class="dim-label">Using ChatGPT/Claude as a chatbot</span><div class="dim-dots"><span class="dot green" data-name="Christian Manchester">CM</span> <span class="dot green" data-name="Seth Hoesman">SH</span> <span class="dot darkgreen" data-name="Aidan Barrow">AB</span> <span class="dot green" data-name="Mansoor Rathore">MR</span> <span class="dot red" data-name="Jim Schraepfer">JS</span> <span class="dot red uncertain" data-name="Pek Nan Tan (uncertain)">PT</span> <span class="dot amber" data-name="Jack Elzinga · Middle Door Homes">JE</span> <span class="dot green" data-name="Michael DeSantis · Riverspan Partners">MD</span> <span class="dot green uncertain" data-name="Johanna Eriksson · Howgood (uncertain)">JEr</span> <span class="dot amber" data-name="Omar Garza · Sector Seven Energy">OG</span></div></div>
-      <div class="dim-row"><span class="dim-label">Automating some workflows</span><div class="dim-dots"><span class="dot amber" data-name="Mackenzie Tuller">MT</span> <span class="dot green" data-name="Andrew Barnett · Datavant">AnB</span> <span class="dot amber" data-name="Laura Cappellin · DoorDash">LC</span> <span class="dot amber uncertain" data-name="Karen Baert · Ammobia (uncertain)">KB</span></div></div>
-      <div class="dim-row"><span class="dim-label">Building and using agents</span><div class="dim-dots"><span class="dot red" data-name="Suchit Rout">SR</span> <span class="dot green" data-name="Nick Mahowald · Growth Street Partners">NM</span></div></div>
-    </div>
-
-    <div class="card">
-      <h3>Org-Level AI Enablement</h3>
-      <div class="dim-row"><span class="dim-label">No/few tools approved</span><div class="dim-dots"><span class="dot green" data-name="Christian Manchester · Flynn Group">CM</span> <span class="dot green" data-name="Mansoor Rathore · Stepful (individual expensed licenses only)">MR</span> <span class="dot amber" data-name="Jack Elzinga · Middle Door Homes (solo, individual subscriptions)">JE</span> <span class="dot amber" data-name="Omar Garza · Sector Seven Energy (solo Claude user, no enterprise tools)">OG</span></div></div>
-      <div class="dim-row"><span class="dim-label">Going through approval now</span><div class="dim-dots"><span class="dot darkgreen" data-name="Aidan Barrow · Rula (Gemini Enterprise)">AB</span></div></div>
-      <div class="dim-row"><span class="dim-label">Enterprise Claude/equivalent licensed</span><div class="dim-dots"><span class="dot green" data-name="Seth Hoesman · Asurion">SH</span> <span class="dot red" data-name="Jim Schraepfer · Essendis">JS</span> <span class="dot red" data-name="Pek Nan Tan · Activision Blizzard (Microsoft)">PT</span> <span class="dot green" data-name="Andrew Barnett · Datavant (OpenAI Enterprise)">AnB</span> <span class="dot green" data-name="Michael DeSantis · Riverspan (GPT Teams + Claude for Work guinea pig)">MD</span> <span class="dot green" data-name="Johanna Eriksson · Howgood (Gemini → Claude switch imminently)">JEr</span></div></div>
-      <div class="dim-row"><span class="dim-label">More advanced tools in use</span><div class="dim-dots"><span class="dot red" data-name="Suchit Rout · No-IP">SR</span> <span class="dot green" data-name="Nick Mahowald · Growth Street Partners (agents for sourcing pipeline)">NM</span></div></div>
-      <div class="dim-row"><span class="dim-label">Lots of AI-native behavior across org</span><div class="dim-dots"><span class="dot amber" data-name="Mackenzie Tuller · Clarify">MT</span> <span class="dot amber" data-name="Laura Cappellin · DoorDash">LC</span> <span class="dot amber" data-name="Karen Baert · Ammobia (AI captain + bi-weekly virtuals + L1/L2/L3 policy)">KB</span></div></div>
-    </div>
-
-    <!-- Reaction to AI Builder -->
-    <div class="card">
-      <h3>Reaction to AI Builder</h3>
-      <div class="bar-row"><span class="bar-label">Not demoed</span><div class="bar-track"><div class="bar-fill" style="width:13%">2</div></div><span class="bar-count">2 (13%)</span></div>
-      <div class="bar-row"><span class="bar-label">Lukewarm interest</span><div class="bar-track"><div class="bar-fill" style="width:13%">2</div></div><span class="bar-count">2 (13%)</span></div>
-      <div class="bar-row"><span class="bar-label">Interested for self only</span><div class="bar-track"><div class="bar-fill amber" style="width:6%">1</div></div><span class="bar-count">1 (6%)</span></div>
-      <div class="bar-row"><span class="bar-label">Somewhat interested - sharing with team</span><div class="bar-track"><div class="bar-fill amber" style="width:19%">3</div></div><span class="bar-count">3 (19%)</span></div>
-      <div class="bar-row"><span class="bar-label">Very interested - sharing with team/others</span><div class="bar-track"><div class="bar-fill green" style="width:44%">7</div></div><span class="bar-count">7 (44%)</span></div>
-      <div class="bar-row"><span class="bar-label">Interested as channel partner</span><div class="bar-track"><div class="bar-fill purple" style="width:6%">1</div></div><span class="bar-count">1 (6%)</span></div>
-      <p class="note">Not demoed: Suchit (will self-serve) + Pek Nan (gaming too bespoke). Lukewarm: Mackenzie (too small) + Jack (solo founder, too busy). Self only: Omar (personal first, then reassess). Somewhat: Christian + Laura (DoorDash AI lead referral) + Karen (Ammobia). Very: Seth + Aidan + Mansoor + Nick + Andrew + Michael + Johanna. Channel: Jim.</p>
-    </div>
-
-    <!-- Next Steps -->
-    <div class="card">
-      <h3>Next Steps</h3>
-      <div class="bar-row"><span class="bar-label">None immediately</span><div class="bar-track"><div class="bar-fill" style="width:13%">2</div></div><span class="bar-count">2 (13%)</span></div>
-      <div class="bar-row"><span class="bar-label">Check back in a few weeks/months</span><div class="bar-track"><div class="bar-fill amber" style="width:19%">3</div></div><span class="bar-count">3 (19%)</span></div>
-      <div class="bar-row"><span class="bar-label">Internal discussion needed</span><div class="bar-track"><div class="bar-fill slate" style="width:13%">2</div></div><span class="bar-count">2 (13%)</span></div>
-      <div class="bar-row"><span class="bar-label">Active opportunity</span><div class="bar-track"><div class="bar-fill green" style="width:44%">7</div></div><span class="bar-count">7 (44%)</span></div>
-      <div class="bar-row"><span class="bar-label">Hot opportunity</span><div class="bar-track"><div class="bar-fill darkgreen" style="width:13%">2</div></div><span class="bar-count">2 (13%)</span></div>
-      <p class="note">Hot: Aidan (May cohort, 300-450 people, budget authority) + Nick (Skylar intro call, 50-100 portco seats). Active: Seth + Christian + Mansoor + Andrew + Michael + Johanna (April cohort) + Omar (personal F&F, self first). Internal: Jim (channel partnership) + Laura (DoorDash new verticals AI lead). Check back: Mackenzie + Jack + Karen (Ammobia, I'll be in touch). None: Suchit (self-serve) + Pek Nan (gaming too bespoke).</p>
-    </div>
-
-  </div>
+  <div class="grid" id="dim-grid"></div>
 
   <h2>Contact Log</h2>
   <div class="table-wrap">
@@ -221,7 +119,7 @@
       <thead>
         <tr>
           <th>Date</th>
-          <th>Name & Position</th>
+          <th>Name &amp; Position</th>
           <th>Company</th>
           <th>Industry</th>
           <th>Size</th>
@@ -232,226 +130,29 @@
           <th>Transcript</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>2026-03-30</td>
-          <td><strong><a href="https://www.linkedin.com/in/oaga/" target="_blank" style="color:#1a1a2e;text-decoration:underline;">Omar Garza</a></strong><br><span style="font-size:11px;color:#718096;">CEO / Founder</span></td>
-          <td><a href="https://sector7energy.com" target="_blank" style="color:#4299e1;">Sector Seven Energy</a></td>
-          <td>Professional Services (energy brokerage)</td>
-          <td class="uncertain">1-9 (uncertain)</td>
-          <td>Chatbot — Claude only, personally</td>
-          <td>No/few approved (solo user)</td>
-          <td>Interested — self only, F&F code</td>
-          <td class="active">Active — personal F&F, reassess team later</td>
-          <td><a href="https://app.granola.ai/meetings/b4e82b10-d360-4e2b-bc7d-80ff292b7cf1" target="_blank" style="color:#4299e1;font-size:11px;">View</a></td>
-        </tr>
-        <tr>
-          <td>2026-03-30</td>
-          <td><strong><a href="https://www.linkedin.com/in/karen-baert/" target="_blank" style="color:#1a1a2e;text-decoration:underline;">Karen Baert</a></strong><br><span style="font-size:11px;color:#718096;">Co-Founder & CEO</span></td>
-          <td><a href="https://ammobia.co" target="_blank" style="color:#4299e1;">Ammobia</a></td>
-          <td>Cleantech / Deep Tech (clean ammonia)</td>
-          <td>10-49</td>
-          <td class="uncertain">Automating workflows (uncertain)</td>
-          <td>AI-native (AI captain + bi-weekly virtuals)</td>
-          <td>Somewhat — forwarding to team</td>
-          <td class="check">Check back — "I'll be in touch"</td>
-          <td><a href="https://app.granola.ai/meetings/c866174c-005a-4a90-9afd-eecf790e9cce" target="_blank" style="color:#4299e1;font-size:11px;">View</a></td>
-        </tr>
-        <tr>
-          <td>2026-03-30</td>
-          <td><strong><a href="https://www.linkedin.com/in/johannaeriksson1/" target="_blank" style="color:#1a1a2e;text-decoration:underline;">Johanna Eriksson</a></strong><br><span style="font-size:11px;color:#718096;">Chief of Staff</span></td>
-          <td><a href="https://howgood.com" target="_blank" style="color:#4299e1;">Howgood</a></td>
-          <td>Tech (B2B SaaS / sustainability)</td>
-          <td>10-49</td>
-          <td class="uncertain">Chatbot (uncertain)</td>
-          <td>Enterprise licensed (Gemini→Claude)</td>
-          <td>Very interested — sharing</td>
-          <td class="active">Active — April cohort (4-5 seats)</td>
-          <td><a href="https://app.granola.ai/meetings/d5ab8949-dc78-41c0-8ea0-2b95f7081ebd" target="_blank" style="color:#4299e1;font-size:11px;">View</a></td>
-        </tr>
-        <tr>
-          <td>2026-03-27</td>
-          <td><strong>Laura Cappellin</strong><br><span style="font-size:11px;color:#718096;">Sr. Manager, Strategy &amp; Ops</span></td>
-          <td><a href="https://www.doordash.com" target="_blank" style="color:#4299e1;">DoorDash</a></td>
-          <td>Tech (food delivery marketplace)</td>
-          <td>10,000+</td>
-          <td>Automating workflows (Claude Code, SQL pipelines)</td>
-          <td>AI-native mandate + Huddle forcing mechanism</td>
-          <td>Somewhat — forwarding to AI lead</td>
-          <td class="internal">Internal — new verticals AI lead discussion</td>
-          <td><a href="https://app.granola.ai/meetings/4c0f6617-113b-48f7-b45a-648f86d0d6fd" target="_blank" style="color:#4299e1;font-size:11px;">View</a></td>
-        </tr>
-        <tr>
-          <td>2026-03-27</td>
-          <td><strong><a href="https://www.linkedin.com/in/michael-desantis-71375b79/" target="_blank" style="color:#1a1a2e;text-decoration:underline;">Michael DeSantis</a></strong><br><span style="font-size:11px;color:#718096;font-style:italic;">Principal</span></td>
-          <td><a href="https://riverspan.com" target="_blank" style="color:#4299e1;">Riverspan Partners</a></td>
-          <td>Financial Services (PE, industrials)</td>
-          <td>10-49</td>
-          <td>Chatbot</td>
-          <td>Enterprise licensed (GPT Teams + Claude CW)</td>
-          <td>Very interested — sharing</td>
-          <td class="active">Active — 8-9 firm members + portco angle</td>
-          <td><a href="https://app.granola.ai/meetings/6c275766-7cd2-44ba-b9d7-1955b23c59a1" target="_blank" style="color:#4299e1;font-size:11px;">View</a></td>
-        </tr>
-        <tr>
-          <td>2026-03-26</td>
-          <td><strong>Andrew Barnett</strong><br><span style="font-size:11px;color:#718096;">Strategy, M&A & Partnerships</span></td>
-          <td><a href="https://www.datavant.com" target="_blank" style="color:#4299e1;">Datavant</a></td>
-          <td>Healthcare (data connectivity)</td>
-          <td>1,000-9,999</td>
-          <td>Automating workflows</td>
-          <td>Enterprise licensed (OpenAI)</td>
-          <td>Very interested — sharing</td>
-          <td class="active">Active — corporate initiatives team</td>
-          <td><span style="color:#cbd5e0;font-size:11px;">N/A</span></td>
-        </tr>
-        <tr>
-          <td>2026-03-26</td>
-          <td><strong><a href="https://www.linkedin.com/in/nick-mahowald/" target="_blank" style="color:#1a1a2e;text-decoration:underline;">Nick Mahowald</a></strong><br><span style="font-size:11px;color:#718096;">Principal</span></td>
-          <td><a href="https://www.growthstreetpartners.com" target="_blank" style="color:#4299e1;">Growth Street Partners</a></td>
-          <td>Financial Services (PE)</td>
-          <td>10-49</td>
-          <td>Building agents</td>
-          <td>More advanced tools</td>
-          <td>Very interested — portco distribution</td>
-          <td class="hot">Hot — Skylar intro call (50-100 portco seats)</td>
-          <td><a href="https://app.granola.ai/meetings/849685ad-d827-41a6-8e8b-e15276f0b93a" target="_blank" style="color:#4299e1;font-size:11px;">View</a></td>
-        </tr>
-        <tr>
-          <td>2026-03-24</td>
-          <td><strong><a href="https://www.linkedin.com/in/john-elzinga/" target="_blank" style="color:#1a1a2e;text-decoration:underline;">Jack Elzinga</a></strong><br><span style="font-size:11px;color:#718096;font-style:italic;">Founder (prev. Chief of Staff @ Home Partners of America)</span></td>
-          <td><a href="https://www.middledoorhomes.com" target="_blank" style="color:#4299e1;">Middle Door Homes</a></td>
-          <td>Real Estate</td>
-          <td>1-9</td>
-          <td>Chatbot</td>
-          <td>No/few approved</td>
-          <td>Lukewarm — too busy founding</td>
-          <td class="check">Check back — timing-dependent, solo founder</td>
-          <td><a href="https://app.granola.ai/meetings/3e4a90e1-0b0d-4f62-bee0-e7b5ba73cc1b" target="_blank" style="color:#4299e1;font-size:11px;">View</a></td>
-        </tr>
-        <tr>
-          <td>2026-03-23</td>
-          <td><strong><a href="https://www.linkedin.com/in/mansoor-rathore-41863750" target="_blank" style="color:#1a1a2e;text-decoration:underline;">Mansoor Rathore</a></strong><br><span style="font-size:11px;color:#718096;">Operations Lead (Live Classroom)</span></td>
-          <td><a href="https://www.stepful.com" target="_blank" style="color:#4299e1;">Stepful</a></td>
-          <td>Education (EdTech / healthcare careers)</td>
-          <td>50-249</td>
-          <td>Chatbot</td>
-          <td>No/few approved</td>
-          <td>Very interested — sharing</td>
-          <td class="active">Active — sharing with SVP of Ops</td>
-          <td><a href="https://app.granola.ai/meetings/c47b4435-7ebe-4022-a029-b7cc5878e407" target="_blank" style="color:#4299e1;font-size:11px;">View</a></td>
-        </tr>
-        <tr>
-          <td>2026-03-20</td>
-          <td><strong><a href="https://www.linkedin.com/in/peknan/" target="_blank" style="color:#1a1a2e;text-decoration:underline;">Pek Nan Tan</a></strong><br><span style="font-size:11px;color:#718096;">Associate Director</span></td>
-          <td><a href="https://www.activisionblizzard.com" target="_blank" style="color:#4299e1;">Activision Blizzard</a></td>
-          <td>Media & Entertainment</td>
-          <td>1,000-9,999</td>
-          <td class="uncertain">Chatbot</td>
-          <td>Enterprise licensed</td>
-          <td>Not demoed</td>
-          <td>None — gaming too bespoke</td>
-          <td><a href="https://notes.granola.ai/d/d73acebe-eb42-41f9-8d5c-7132b3209eee" target="_blank" style="color:#4299e1;font-size:11px;">View</a></td>
-        </tr>
-        <tr>
-          <td>2026-03-20</td>
-          <td><strong><a href="https://www.linkedin.com/in/aidanquealy/" target="_blank" style="color:#1a1a2e;text-decoration:underline;">Aidan Barrow</a></strong><br><span style="font-size:11px;color:#718096;">Head of Ops / AI Adoption Lead</span></td>
-          <td><a href="https://www.rula.com" target="_blank" style="color:#4299e1;">Rula</a></td>
-          <td>Healthcare</td>
-          <td>250-999</td>
-          <td>Chatbot</td>
-          <td>Going through approval</td>
-          <td>Very interested — sharing</td>
-          <td class="hot">Hot — May 2026 cohort</td>
-          <td><a href="https://app.granola.ai/meetings/3518f791-3b6d-4d57-90e2-87cbdaff9b2a" target="_blank" style="color:#4299e1;font-size:11px;">View</a></td>
-        </tr>
-        <tr>
-          <td>2026-03-19</td>
-          <td><strong><a href="https://www.linkedin.com/in/jamesschraepfer/" target="_blank" style="color:#1a1a2e;text-decoration:underline;">Jim Schraepfer</a></strong><br><span style="font-size:11px;color:#718096;">Partner & CISO</span></td>
-          <td><a href="https://www.essendis.com" target="_blank" style="color:#4299e1;">Essendis</a></td>
-          <td>Prof Services</td>
-          <td>10-49</td>
-          <td>Chatbot</td>
-          <td>Enterprise licensed</td>
-          <td class="partner">Channel partner</td>
-          <td class="internal">Internal discussion needed</td>
-          <td><a href="https://app.granola.ai/meetings/621f6b14-b755-4dc9-bafc-f11b777bc59e" target="_blank" style="color:#4299e1;font-size:11px;">View</a></td>
-        </tr>
-        <tr>
-          <td>2026-03-19</td>
-          <td><strong><a href="https://www.linkedin.com/in/seth-hoesman/" target="_blank" style="color:#1a1a2e;text-decoration:underline;">Seth Hoesman</a></strong><br><span style="font-size:11px;color:#718096;">Director, Corporate Strategy</span></td>
-          <td><a href="https://www.asurion.com" target="_blank" style="color:#4299e1;">Asurion</a></td>
-          <td>Financial Services</td>
-          <td>10,000+</td>
-          <td>Chatbot</td>
-          <td>Enterprise licensed</td>
-          <td>Very interested — sharing</td>
-          <td class="active">Active — Matthew Phillips intro</td>
-          <td><a href="https://app.granola.ai/meetings/8396ba6b-b0e6-4846-9b10-b72dd7b8c56b" target="_blank" style="color:#4299e1;font-size:11px;">View</a></td>
-        </tr>
-        <tr>
-          <td>2026-03-18</td>
-          <td><strong><a href="https://www.linkedin.com/in/christianmanchester/" target="_blank" style="color:#1a1a2e;text-decoration:underline;">Christian Manchester</a></strong><br><span style="font-size:11px;color:#718096;">Director, Corporate Development</span></td>
-          <td><a href="https://www.flynnrestaurantgroup.com" target="_blank" style="color:#4299e1;">Flynn Group</a></td>
-          <td>Food & Bev / QSR</td>
-          <td>10,000+</td>
-          <td>Chatbot</td>
-          <td>No/few approved</td>
-          <td>Somewhat — sharing</td>
-          <td class="active">Active — Audrey + support ctr</td>
-          <td><a href="https://app.granola.ai/meetings/7e3862df-c5c3-4b59-8407-6d7c676f46af" target="_blank" style="color:#4299e1;font-size:11px;">View</a></td>
-        </tr>
-        <tr>
-          <td>2026-03-17</td>
-          <td><strong><a href="https://www.linkedin.com/in/mackenzie-tuller/" target="_blank" style="color:#1a1a2e;text-decoration:underline;">Mackenzie Tuller</a></strong><br><span style="font-size:11px;color:#718096;">Head of Operations</span></td>
-          <td><a href="https://www.clarify.ai" target="_blank" style="color:#4299e1;">Clarify</a></td>
-          <td>Tech</td>
-          <td>10-49</td>
-          <td>Automating workflows</td>
-          <td>AI-native org</td>
-          <td>Lukewarm</td>
-          <td class="check">Check back — Clarify scaling + Mutiny</td>
-          <td><a href="https://app.granola.ai/meetings/63d38ad4-1fce-44a2-99f4-f61bd5bc1306" target="_blank" style="color:#4299e1;font-size:11px;">View</a></td>
-        </tr>
-        <tr>
-          <td>2026-03-16</td>
-          <td><strong><a href="https://www.linkedin.com/in/suchitrout/" target="_blank" style="color:#1a1a2e;text-decoration:underline;">Suchit Rout</a></strong><br><span style="font-size:11px;color:#718096;">CEO (Acquirer)</span></td>
-          <td><a href="https://www.noip.com" target="_blank" style="color:#4299e1;">No-IP</a></td>
-          <td>Tech</td>
-          <td>10-49</td>
-          <td>Agents</td>
-          <td>Approved and agentic</td>
-          <td>Not demoed</td>
-          <td>None — will self-serve</td>
-          <td><a href="https://app.granola.ai/meetings/a48012d0-1e8d-408e-8ca7-ffa8da9aa9da" target="_blank" style="color:#4299e1;font-size:11px;">View</a></td>
-        </tr>
-      </tbody>
+      <tbody id="contact-log"></tbody>
     </table>
   </div>
 
-  <h2>Emerging Patterns (n=16)</h2>
+  <h2>Emerging Patterns (n=19)</h2>
   <div class="section">
     <ul style="font-size:14px; line-height:1.8; padding-left:20px; color:#2d3748;">
-      <li><strong>Companies with large non-engineering workforces = warmest prospects:</strong> Flynn (back office), Asurion (non-technical functions), and Rula (ops, finance, legal, marketing, support) are all interested and sharing with teams. The common thread isn't industry — it's having hundreds of non-technical employees who need upskilling but can't self-serve.</li>
-      <li><strong>Tech-forward orgs/leaders = red flag:</strong> Suchit (builds agents, will self-serve) and Clarify (AI-native culture, too small). They'll figure it out themselves.</li>
-      <li><strong>Chatbot-level users = sweet spot:</strong> Christian, Seth, Aidan, Mansoor, and Jack are all chatbot-only users who want to go further but need structure. The more advanced the person (Suchit = agents, Mackenzie = automating), the less likely they are to buy — though Andrew (automating workflows) is a notable exception who converted immediately.</li>
-      <li><strong>"Can't build training in-house" = clear buying trigger:</strong> Flynn has nobody internally who can teach AI. Rula has 1 L&D person focused on onboarding. Both are active opportunities. When there's no internal trainer, we're the obvious solution.</li>
-      <li><strong>HIPAA / data compliance = emerging moat (n=2):</strong> Both Rula (Aidan) and Datavant (Andrew) are in regulated healthcare and face IT-enforced HIPAA constraints that limit which tools can be approved, how they can connect to data, and what training looks like. If we can credibly demonstrate data-sanitized workflows and healthcare-safe prompting, that's a real differentiator — generic AI training vendors won't have this. Two warm contacts in regulated healthcare is the start of a cluster.</li>
-      <li><strong>"Enterprise tool licensed ≠ people know how to use it" = our core gap:</strong> This pattern is now consistent across 4+ calls: Section AI at Asurion (checkbox to get ChatGPT, then forgotten), Pek Nan at Activision (OpenAI deployed but no workflow change), Andrew at Datavant (OpenAI Enterprise org-wide but corporate strategy team are guinea pigs). Having the tool approved is the beginning, not the end. We live in the gap between "license purchased" and "workflows actually changed."</li>
-      <li><strong>"Go figure it out with your L&D budget" + performance review pressure = potential entry point:</strong> Stepful told employees to self-serve with their stipend but tied promotions to AI effectiveness — creating urgency without structure. Mansoor immediately saw our cohort model as the solution. This pattern likely repeats at orgs without a dedicated AI champion yet.</li>
-      <li><strong>"Skeptic who converts mid-call" = high-value archetype:</strong> Mansoor came in philosophically skeptical about AI hype and left wanting to pitch it to his boss. Converts tend to become strong internal champions because their conviction was earned, not assumed.</li>
-      <li><strong>PE/VC operational partners = emerging distribution channel (n=2):</strong> Nick (Growth Street Partners) and Michael (Riverspan Partners) are now two small PE principals who instantly saw Leland as a fit — for their teams and their portcos. Nick has a Skylar equivalent (dedicated AI champion); Michael has no internal AI champion at all, making external training even more compelling. The pitch: "Skylar handles deep integration where he exists, Leland handles cohort upskilling." This pattern is softer and relationship-driven, routes through GP trust rather than a formal contract, and scales to 50-100+ seats per firm through portco distribution. Small industrials/vertical-software PE is a sub-segment worth pursuing deliberately — portco budgets are tight but value creation pressure is high.</li>
-      <li><strong>Urgency doesn't correlate with competency — it may increase with it:</strong> Laura (DoorDash) is the most technically advanced prospect interviewed — full Claude Code pipeline automation, MCPs connected, 2-3 day analyses compressed to 3 hours — and still says "I always feel behind." The anxiety signal exists across all skill levels; advanced users feel it more acutely as they see more of what's possible. This matters for positioning: framing our product as "structured path for people who already know enough to feel the gap" may resonate as well as the beginner pitch.</li>
-      <li><strong>"25yo associate manager writes the guide" = informal AI champion at ceiling:</strong> DoorDash's entire training program for new verticals is a setup guide written by one junior employee and shared over Slack. Works for initial installation; doesn't scale for skill progression. The orgs with this pattern have a real unmet need for structured curriculum — they've exhausted the informal model.</li>
-      <li><strong>InfoSec pre-approval = onboarding friction point (n=3+):</strong> Johanna (Howgood), Christian (Flynn), and Aidan (Rula) all flagged compliance/InfoSec approval timelines as a risk that could slow cohort momentum mid-course. Johanna's insight is the most actionable: submit a scoped connector list to InfoSec <em>before</em> day 1, framed as "here are the guardrails" rather than "can we use this tool." Worth building a formal pre-cohort checklist (Claude Code + top 5-6 connectors) that compliance-constrained orgs can submit in advance. This could meaningfully reduce drop-off between signup and productive usage.</li>
+      <li><strong>"Enterprise tool licensed ≠ adoption" is the core gap (n=4+):</strong> Section AI at Asurion (checkbox to get ChatGPT, then forgotten), Activision (OpenAI deployed but no workflow change), Datavant (OpenAI Enterprise org-wide but Claude blocked except in terminal), Gusto (non-R&D teams still basic despite massive investment). Having the tool approved is the beginning, not the end.</li>
+      <li><strong>Chatbot-level users = sweet spot for L1 (n=7+):</strong> Christian, Seth, Aidan, Mansoor, Jack, Omar, Michael, Pek Nan, Johanna, and Cassie are all at chatbot level. The more advanced the person (Suchit = agents, Laura = automating), the less likely they are to buy — though Andrew (automating) and Nick (agents) are notable exceptions where portco/team leverage overrides personal advancement.</li>
+      <li><strong>Companies with large non-engineering workforces = warmest prospects (n=4):</strong> Flynn (400-person back office), Rula (300-450 non-eng), Asurion (non-technical functions), Gusto (CS, support, sales, legal). The common thread isn't industry — it's having hundreds of non-technical employees who need upskilling but can't self-serve.</li>
+      <li><strong>"Even advanced orgs have an underserved middle" (n=4):</strong> Gusto, DoorDash, Ammobia, and Asurion all have the same pattern: R&D/product/eng races ahead while non-technical teams are left behind. Even with a dedicated head of AI enablement, AI stipends, and performance axes, the benefits are uneven. Our entry point at advanced orgs is the specific teams the internal enablement org hasn't reached.</li>
+      <li><strong>"Can't build training in-house" = buying trigger (n=3+):</strong> Flynn has nobody internally who can teach AI. Rula has 1 L&D person focused on onboarding. Stepful has no AI champion and no roadmap. Cassie's Rainforest Builder has no one in charge of AI integration. When there's no internal trainer, we're the obvious solution.</li>
+      <li><strong>InfoSec pre-approval = onboarding friction (n=3):</strong> Johanna (Howgood), Christian (Flynn), and Aidan (Rula) flagged compliance/InfoSec timelines as a risk. Johanna's insight: submit a scoped connector list to InfoSec <em>before</em> day 1. Worth building a formal pre-cohort checklist to reduce drop-off.</li>
+      <li><strong>PE/VC operational partners = distribution channel (n=2):</strong> Nick (Growth Street, 10 portcos) and Michael (Riverspan, 3 portcos) instantly saw the fit for their firms and portfolio companies. Nick has Skylar (internal AI champion); Michael has no champion, making external training more compelling. Scales to 50-100+ seats per firm through portco distribution.</li>
+      <li><strong>HIPAA / data compliance = emerging moat (n=2):</strong> Rula (Aidan) and Datavant (Andrew) are in regulated healthcare facing IT-enforced HIPAA constraints. If we can demonstrate data-sanitized workflows and healthcare-safe prompting, that's a real differentiator generic vendors won't have.</li>
     </ul>
   </div>
 
   <h2>Emerging ICP</h2>
   <div class="section">
     <ul style="font-size:14px; line-height:1.8; padding-left:20px; color:#2d3748;">
-      <li><strong>Org:</strong> 250–2,000 employees. Large non-engineering workforce (ops, finance, legal, support, marketing). No dedicated internal AI trainer. Leadership has signaled AI matters but hasn't operationalized it — either no champion yet, or one person just been tapped. Industry-agnostic so far (Healthcare, Financial Services, F&B all green); what matters is workforce composition, not sector.</li>
-      <li><strong>Persona:</strong> Head of Ops or equivalent (VP/Director-level). Personally at chatbot stage — using AI but knows they should be doing more. Either already the decision-maker for upskilling (Aidan) or highly motivated to become the internal champion (Seth, Mansoor). Reports to COO or CFO. Has or can unlock an L&D / AI transformation budget separate from standard per-head stipends.</li>
+      <li><strong>Org:</strong> 250–2,000 employees. Large non-engineering workforce (ops, finance, legal, support, marketing). No dedicated internal AI trainer. Leadership has signaled AI matters but hasn't operationalized it. Industry-agnostic so far (Healthcare, Financial Services, F&B all green); what matters is workforce composition, not sector.</li>
+      <li><strong>Persona:</strong> Head of Ops or equivalent (VP/Director-level). Personally at chatbot stage — using AI but knows they should be doing more. Either already the decision-maker for upskilling (Aidan) or highly motivated to become the internal champion (Seth, Mansoor). Reports to COO or CFO. Has or can unlock an L&D / AI transformation budget.</li>
       <li><strong>Red flags:</strong> Tech-forward CEO/leadership (they'll self-serve). Company &lt;50 people (too small, informal knowledge sharing suffices). Fully generic Microsoft/Copilot-only environment with no external vendor appetite.</li>
     </ul>
   </div>
@@ -459,15 +160,12 @@
   <h2>Methodology Builds</h2>
   <div class="section">
     <ul style="font-size:14px; line-height:1.8; padding-left:20px; color:#2d3748;">
-      <li><strong>Mid-market gap partially filled (n=1):</strong> Rula at 600 employees is the first prospect in the 250-999 range — and our strongest. Need more calls in 50-999 range to pressure-test whether mid-market is truly the sweet spot vs. 10,000+ enterprises like Flynn and Asurion.</li>
-      <li><strong>First Manager-level call (Laura, DoorDash):</strong> 14 of 16 calls are Director+ or Founder. Search-fund founder CEOs (Omar, Jack) are a distinct segment: high-leverage use case (running everything themselves), no team buy-in needed for consumer play, but small org limits B2B potential. Laura is the first Senior Manager — and notably the most technically advanced user in the set. Manager-level users embedded in AI-aggressive orgs may have different buying triggers (personal upskilling vs. team mandate) worth exploring further. Still no IC-level calls.</li>
-      <li><strong>Industry coverage is wide but thin:</strong> 1-2 reps per industry for most sectors. Healthcare is the first with n=2 (Rula + Datavant) — beginning to form a cluster. Too early to rule other verticals in or out — need 2-3 data points each before drawing ICP conclusions.</li>
-      <li><strong>Healthcare (n=2) starting to validate as a vertical:</strong> Both Rula (Aidan) and Datavant (Andrew) are warm, regulated healthcare companies where HIPAA constrains tools but doesn't kill interest — it makes the right vendor more valuable. Neither was a cold lead. This is worth pursuing more deliberately: regulated healthcare orgs with 500-2K employees and non-engineering workforces.</li>
-      <li><strong>First 1-9 company + first Real Estate call (Jack, n=1):</strong> Solo founders are a personal conversion segment, not B2B. Real estate is a laggard industry — interesting for personal enrollments but enterprise B2B plays will face extreme inertia (institutional investors move like Blackstone).</li>
-      <li><strong>New industry: Cleantech / Deep Tech (Karen / Ammobia, n=1):</strong> Hard tech companies building physical products have very different AI use patterns — engineering-heavy, discipline-specific (materials modeling, specialized knowledge bases), and largely self-sufficient through technical AI champions. Not our B2B ICP for generalist L1/L2, but the commercial team layer is worth noting for future L2 outreach. Ammobia's L1/L2/L3 content labeling policy is the most operationally sophisticated AI governance mechanism seen in any call — worth using as a reference design when advising governance-focused prospects.</li>
-      <li><strong>Search-fund founder CEOs = emerging consumer segment (Omar, Jack, n=2):</strong> Both acquired small-to-micro traditional businesses post-MBA, are running everything themselves, and see clear personal productivity ROI from AI. They're price-sensitive and hesitant about team readiness, but motivated individually. No B2B angle until the org grows. Worth tracking as a consumer sub-segment of the GSB network.</li>
-      <li><strong>Small PE firm pattern now n=2 (Nick + Michael):</strong> Both are GSB classmates who are principals at small PE/growth equity firms (10-49 people), recently licensed enterprise Claude, and have no dedicated internal AI trainer. Both immediately saw the team training case. Nick's portcos have Skylar; Michael's do not — reinforcing that the "no internal champion" scenario is more common and arguably a better fit. Next test: is this pattern specific to GSB-network PE, or does it generalize to other small PE/VC shops?</li>
-      <li><strong>First genuine outlier call (DoorDash, Laura):</strong> DoorDash got Claude Code 6 days post-release and runs weekly AI Huddle forcing mechanisms. They are too advanced to be a direct B2B prospect but useful as a benchmark ceiling — and the new verticals AI lead (Laura's former boss) may be a warm intro to a structured training conversation. Outlier orgs are worth logging separately: they calibrate the upper end of the adoption curve and often surface referrals to adjacent orgs that are behind.</li>
+      <li><strong>Healthcare validating as vertical (n=2):</strong> Rula and Datavant are both warm, regulated healthcare companies where HIPAA constrains tools but doesn't kill interest. Neither was a cold lead. Worth pursuing deliberately: regulated healthcare orgs with 500-2K employees and non-engineering workforces.</li>
+      <li><strong>Small PE firm pattern (n=2):</strong> Nick (Growth Street) and Michael (Riverspan) are both PE principals who instantly saw the team + portco training case. Nick has a Skylar equivalent; Michael doesn't. The "no internal champion" scenario is more common and arguably a better fit for us.</li>
+      <li><strong>Channel partner conversations emerging (n=2):</strong> Jim (US enterprise through cybersecurity partners) and Metin (Turkish market through former CIO of Turkish Airlines). First international channel partner. Different from direct B2B — requires rev share framework and one-pager before pipeline develops.</li>
+      <li><strong>Industry coverage wide but thin:</strong> 11 industries represented across 19 calls. Only Financial Services at n=3. Most sectors at n=1-2. Too early to rule verticals in or out — need 2-3 data points each before drawing ICP conclusions by industry.</li>
+      <li><strong>Mid-market (250-999) still undersampled:</strong> Only Rula at n=1 in the 250-999 range — and it's our strongest prospect. Need more calls in 50-999 range to pressure-test whether mid-market is truly the sweet spot.</li>
+      <li><strong>Manager-level buying triggers differ (n=2):</strong> Laura (DoorDash) and Sarah (Gusto) are both Managers at advanced orgs. Both acted as connectors/referrers rather than direct buyers — passing to AI leads or L&D teams. Director+ prospects are more likely to be the decision-maker themselves.</li>
     </ul>
   </div>
 
@@ -475,11 +173,234 @@
 </div>
 
 <script>
-async function sha256(str) {
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
-  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+// ─── CALLS DATA ────────────────────────────────────────────────────────────────
+// To add a new call: append one object here. All rendering is automatic.
+const CALLS = [
+  {id:1, date:'2026-03-16', name:'Suchit Rout', init:'SR', co:'No-IP', coUrl:'https://www.noip.com', li:'https://www.linkedin.com/in/suchitrout/', pos:'CEO (Acquirer)', rag:'red', gUrl:'https://app.granola.ai/meetings/a48012d0-1e8d-408e-8ca7-ffa8da9aa9da', role:'C-Suite', size:'10-49', ind:'Tech', comp:'Building and using agents', enab:'More advanced tools in use', react:'Not demoed', next:'None immediately', unc:{}, tInd:'Tech', tComp:'Agents', tEnab:'Approved and agentic', tReact:'Not demoed', tNext:'None — will self-serve', tNextCls:''},
+  {id:2, date:'2026-03-17', name:'Mackenzie Tuller', init:'MT', co:'Clarify', coUrl:'https://www.clarify.ai', li:'https://www.linkedin.com/in/mackenzie-tuller/', pos:'Head of Operations', rag:'amber', gUrl:'https://app.granola.ai/meetings/63d38ad4-1fce-44a2-99f4-f61bd5bc1306', role:'VP', size:'10-49', ind:'Tech', comp:'Automating some workflows', enab:'Lots of AI-native behavior across org', react:'Lukewarm interest', next:'Check back in a few weeks/months', unc:{}, tInd:'Tech', tComp:'Automating workflows', tEnab:'AI-native org', tReact:'Lukewarm', tNext:'Check back — Clarify scaling + Mutiny', tNextCls:'check'},
+  {id:3, date:'2026-03-18', name:'Christian Manchester', init:'CM', co:'Flynn Group', coUrl:'https://www.flynnrestaurantgroup.com', li:'https://www.linkedin.com/in/christianmanchester/', pos:'Director, Corporate Development', rag:'green', gUrl:'https://app.granola.ai/meetings/7e3862df-c5c3-4b59-8407-6d7c676f46af', role:'Director', size:'10,000+', ind:'Food & Beverage / QSR', comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'No/few tools approved', react:'Somewhat interested - sharing with team', next:'Active opportunity', unc:{}, tInd:'Food & Bev / QSR', tComp:'Chatbot', tEnab:'No/few approved', tReact:'Somewhat — sharing', tNext:'Active — Audrey + support ctr', tNextCls:'active'},
+  {id:4, date:'2026-03-19', name:'Seth Hoesman', init:'SH', co:'Asurion', coUrl:'https://www.asurion.com', li:'https://www.linkedin.com/in/seth-hoesman/', pos:'Director, Corporate Strategy', rag:'green', gUrl:'https://app.granola.ai/meetings/8396ba6b-b0e6-4846-9b10-b72dd7b8c56b', role:'Director', size:'10,000+', ind:'Financial Services', comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'Enterprise Claude/equivalent licensed', react:'Very interested - sharing with team/others', next:'Active opportunity', unc:{}, tInd:'Financial Services', tComp:'Chatbot', tEnab:'Enterprise licensed', tReact:'Very interested — sharing', tNext:'Active — Matthew Phillips intro', tNextCls:'active'},
+  {id:5, date:'2026-03-19', name:'Jim Schraepfer', init:'JS', co:'Essendis', coUrl:'https://www.essendis.com', li:'https://www.linkedin.com/in/jamesschraepfer/', pos:'Partner & CISO', rag:'red', gUrl:'https://app.granola.ai/meetings/621f6b14-b755-4dc9-bafc-f11b777bc59e', role:'Founder', size:'10-49', ind:'Professional Services', comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'Enterprise Claude/equivalent licensed', react:'Interested as channel partner', next:'Internal discussion needed', unc:{}, tInd:'Prof Services', tComp:'Chatbot', tEnab:'Enterprise licensed', tReact:'Channel partner', tNext:'Internal discussion needed', tNextCls:'internal'},
+  {id:6, date:'2026-03-20', name:'Aidan Barrow', init:'AB', co:'Rula', coUrl:'https://www.rula.com', li:'https://www.linkedin.com/in/aidanquealy/', pos:'Head of Ops / AI Adoption Lead', rag:'darkgreen', gUrl:'https://app.granola.ai/meetings/3518f791-3b6d-4d57-90e2-87cbdaff9b2a', role:'VP', size:'250-999', ind:'Healthcare', comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'Going through approval now', react:'Very interested - sharing with team/others', next:'Hot opportunity', unc:{}, tInd:'Healthcare', tComp:'Chatbot', tEnab:'Going through approval', tReact:'Very interested — sharing', tNext:'Hot — May 2026 cohort', tNextCls:'hot'},
+  {id:7, date:'2026-03-20', name:'Pek Nan Tan', init:'PT', co:'Activision Blizzard', coUrl:'https://www.activisionblizzard.com', li:'https://www.linkedin.com/in/peknan/', pos:'Associate Director', rag:'red', gUrl:'https://notes.granola.ai/d/d73acebe-eb42-41f9-8d5c-7132b3209eee', role:'Director', size:'1,000-9,999', ind:'Media & Entertainment', comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'Enterprise Claude/equivalent licensed', react:'Not demoed', next:'None immediately', unc:{comp:true}, tInd:'Media & Entertainment', tComp:'Chatbot', tEnab:'Enterprise licensed', tReact:'Not demoed', tNext:'None — gaming too bespoke', tNextCls:''},
+  {id:8, date:'2026-03-23', name:'Mansoor Rathore', init:'MR', co:'Stepful', coUrl:'https://www.stepful.com', li:'https://www.linkedin.com/in/mansoor-rathore-41863750', pos:'Operations Lead (Live Classroom)', rag:'green', gUrl:'https://app.granola.ai/meetings/c47b4435-7ebe-4022-a029-b7cc5878e407', role:'Director', size:'50-249', ind:'Education', comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'No/few tools approved', react:'Very interested - sharing with team/others', next:'Active opportunity', unc:{}, tInd:'Education (EdTech)', tComp:'Chatbot', tEnab:'No/few approved', tReact:'Very interested — sharing', tNext:'Active — sharing with SVP of Ops', tNextCls:'active'},
+  {id:9, date:'2026-03-24', name:'Jack Elzinga', init:'JE', co:'Middle Door Homes', coUrl:'https://www.middledoorhomes.com', li:'https://www.linkedin.com/in/john-elzinga/', pos:'Founder', rag:'amber', gUrl:'https://app.granola.ai/meetings/3e4a90e1-0b0d-4f62-bee0-e7b5ba73cc1b', role:'Founder', size:'1-9', ind:'Real Estate', comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'No/few tools approved', react:'Lukewarm interest', next:'Check back in a few weeks/months', unc:{}, tInd:'Real Estate', tComp:'Chatbot', tEnab:'No/few approved', tReact:'Lukewarm — too busy founding', tNext:'Check back — timing-dependent', tNextCls:'check'},
+  {id:10, date:'2026-03-26', name:'Nick Mahowald', init:'NM', co:'Growth Street Partners', coUrl:'https://www.growthstreetpartners.com', li:'https://www.linkedin.com/in/nick-mahowald/', pos:'Principal', rag:'green', gUrl:'https://app.granola.ai/meetings/849685ad-d827-41a6-8e8b-e15276f0b93a', role:'Director', size:'10-49', ind:'Financial Services', comp:'Building and using agents', enab:'More advanced tools in use', react:'Very interested - sharing with team/others', next:'Hot opportunity', unc:{}, tInd:'Financial Services (PE)', tComp:'Building agents', tEnab:'More advanced tools', tReact:'Very interested — portco distribution', tNext:'Hot — Skylar intro call (50-100 seats)', tNextCls:'hot'},
+  {id:11, date:'2026-03-26', name:'Andrew Barnett', init:'AnB', co:'Datavant', coUrl:'https://www.datavant.com', li:'', pos:'Strategy, M&A & Partnerships', rag:'green', gUrl:'', role:'Director', size:'1,000-9,999', ind:'Healthcare', comp:'Automating some workflows', enab:'Enterprise Claude/equivalent licensed', react:'Very interested - sharing with team/others', next:'Active opportunity', unc:{}, tInd:'Healthcare (data connectivity)', tComp:'Automating workflows', tEnab:'Enterprise licensed (OpenAI)', tReact:'Very interested — sharing', tNext:'Active — corporate initiatives team', tNextCls:'active'},
+  {id:12, date:'2026-03-27', name:'Michael DeSantis', init:'MD', co:'Riverspan Partners', coUrl:'https://riverspan.com', li:'https://www.linkedin.com/in/michael-desantis-71375b79/', pos:'Principal', rag:'green', gUrl:'https://app.granola.ai/meetings/6c275766-7cd2-44ba-b9d7-1955b23c59a1', role:'Director', size:'10-49', ind:'Financial Services', comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'Enterprise Claude/equivalent licensed', react:'Very interested - sharing with team/others', next:'Active opportunity', unc:{role:true}, tInd:'Financial Services (PE)', tComp:'Chatbot', tEnab:'Enterprise licensed (GPT Teams + Claude CW)', tReact:'Very interested — sharing', tNext:'Active — 8-9 firm members + portco', tNextCls:'active'},
+  {id:13, date:'2026-03-27', name:'Laura Cappellin', init:'LC', co:'DoorDash', coUrl:'https://www.doordash.com', li:'', pos:'Sr. Manager, Strategy & Ops', rag:'amber', gUrl:'https://app.granola.ai/meetings/4c0f6617-113b-48f7-b45a-648f86d0d6fd', role:'Manager', size:'10,000+', ind:'Tech', comp:'Automating some workflows', enab:'Lots of AI-native behavior across org', react:'Somewhat interested - sharing with team', next:'Internal discussion needed', unc:{}, tInd:'Tech (food delivery)', tComp:'Automating workflows (Claude Code)', tEnab:'AI-native mandate + Huddle', tReact:'Somewhat — forwarding to AI lead', tNext:'Internal — new verticals AI lead', tNextCls:'internal'},
+  {id:14, date:'2026-03-30', name:'Johanna Eriksson', init:'JEr', co:'Howgood', coUrl:'https://howgood.com', li:'https://www.linkedin.com/in/johannaeriksson1/', pos:'Chief of Staff', rag:'green', gUrl:'https://app.granola.ai/meetings/d5ab8949-dc78-41c0-8ea0-2b95f7081ebd', role:'VP', size:'10-49', ind:'Tech', comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'Enterprise Claude/equivalent licensed', react:'Very interested - sharing with team/others', next:'Active opportunity', unc:{comp:true}, tInd:'Tech (sustainability SaaS)', tComp:'Chatbot', tEnab:'Enterprise licensed (Gemini→Claude)', tReact:'Very interested — sharing', tNext:'Active — April cohort (4-5 seats)', tNextCls:'active'},
+  {id:15, date:'2026-03-30', name:'Omar Garza', init:'OG', co:'Sector Seven Energy', coUrl:'https://sector7energy.com', li:'https://www.linkedin.com/in/oaga/', pos:'CEO / Founder', rag:'amber', gUrl:'https://app.granola.ai/meetings/b4e82b10-d360-4e2b-bc7d-80ff292b7cf1', role:'Founder', size:'1-9', ind:'Professional Services', comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'No/few tools approved', react:'Interested for self only', next:'Active opportunity', unc:{size:true}, tInd:'Prof Services (energy brokerage)', tComp:'Chatbot — Claude only', tEnab:'No/few approved (solo user)', tReact:'Interested — self only', tNext:'Active — personal F&F', tNextCls:'active'},
+  {id:16, date:'2026-03-30', name:'Karen Baert', init:'KB', co:'Ammobia', coUrl:'https://ammobia.co', li:'https://www.linkedin.com/in/karenbaert', pos:'Co-Founder & CEO', rag:'amber', gUrl:'https://app.granola.ai/meetings/c866174c-005a-4a90-9afd-eecf790e9cce', role:'Founder', size:'10-49', ind:'Cleantech / Deep Tech', comp:'Automating some workflows', enab:'Lots of AI-native behavior across org', react:'Somewhat interested - sharing with team', next:'Check back in a few weeks/months', unc:{comp:true, react:true}, tInd:'Cleantech / Deep Tech', tComp:'Automating workflows', tEnab:'AI-native (AI captain + virtuals)', tReact:'Somewhat — forwarding to team', tNext:'Check back — "I\'ll be in touch"', tNextCls:'check'},
+  {id:17, date:'2026-03-30', name:'Sarah Jacobson', init:'SJ', co:'Gusto', coUrl:'https://gusto.com', li:'https://www.linkedin.com/in/sarahjacobson', pos:'Product Manager', rag:'amber', gUrl:'https://app.granola.ai/meetings/32279a3b-87a5-40e1-b0cf-1d5754fef200', role:'Manager', size:'1,000-9,999', ind:'Tech', comp:'Automating some workflows', enab:'Lots of AI-native behavior across org', react:'Somewhat interested - sharing with team', next:'Internal discussion needed', unc:{}, tInd:'Tech (HR/payroll SaaS)', tComp:'Automating workflows (Cursor)', tEnab:'AI-native (Anthropic CTO, MCP layer)', tReact:'Somewhat — passing to L&D', tNext:'Internal — L&D team review', tNextCls:'internal'},
+  {id:18, date:'2026-03-31', name:'Cassie Coravos', init:'CC', co:'Rainforest Builder', coUrl:'https://rainforestbuilder.com', li:'https://www.linkedin.com/in/cassiecoravos', pos:'BD / Marketing / Design', rag:'green', gUrl:'https://app.granola.ai/meetings/77ead5b4-e025-441f-9a73-cba6edcd22ef', role:'Director', size:'10-49', ind:'Cleantech / Deep Tech', comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'No/few tools approved', react:'Very interested - sharing with team/others', next:'Active opportunity', unc:{role:true}, tInd:'Cleantech (carbon/conservation)', tComp:'Chatbot (RFPs + design)', tEnab:'No/few approved (personal cards)', tReact:'Very interested — sharing with team', tNext:'Active — PD budget, showing to team', tNextCls:'active'},
+  {id:19, date:'2026-03-31', name:'Metin Tabalu', init:'MTb', co:'Alamount', coUrl:'https://alamount.net', li:'https://www.linkedin.com/in/metintabalu', pos:'Founder', rag:'red', gUrl:'https://app.granola.ai/meetings/4abadc6b-1cd8-4193-abff-838b36499b50', role:'Founder', size:'1-9', ind:'Professional Services', comp:'Building and using agents', enab:'More advanced tools in use', react:'Interested as channel partner', next:'Active opportunity', unc:{size:true}, tInd:'Prof Services (AI consulting, Turkey)', tComp:'Building agents (AI consultant)', tEnab:'More advanced (AI consulting firm)', tReact:'Channel partner', tNext:'Active — one-pager + CIO contact', tNextCls:'active'}
+];
+
+// ─── TAXONOMY (defines display order for dimension cards) ─────────────────────
+const ROLE_ORDER    = ['C-Suite','VP','Director','Manager','IC','Founder','Other'];
+const SIZE_ORDER    = ['1-9','10-49','50-249','250-999','1,000-9,999','10,000+'];
+const IND_ORDER     = ['Financial Services','Healthcare','Tech','Professional Services','Education','Food & Beverage / QSR','Government & Defense','Nonprofit','Media & Entertainment','Real Estate','Cleantech / Deep Tech'];
+const COMP_ORDER    = ['Not using at all','Using ChatGPT/Claude/etc as a chatbot','Automating some workflows','Building and using agents'];
+const ENAB_ORDER    = ['No/few tools approved','Going through approval now','Enterprise Claude/equivalent licensed','More advanced tools in use','Lots of AI-native behavior across org'];
+
+// Reaction categories and their bar colors
+const REACT_ORDER = [
+  {val:'Not demoed',                                cls:''},
+  {val:'Lukewarm interest',                         cls:''},
+  {val:'Interested for self only',                  cls:'amber'},
+  {val:'Somewhat interested - sharing with team',   cls:'amber'},
+  {val:'Very interested - sharing with team/others',cls:'green'},
+  {val:'Interested as channel partner',             cls:'purple'}
+];
+
+// Next steps categories and their bar colors
+const NEXT_ORDER = [
+  {val:'None immediately',                    cls:''},
+  {val:'Check back in a few weeks/months',    cls:'amber'},
+  {val:'Internal discussion needed',          cls:'slate'},
+  {val:'Active opportunity',                  cls:'green'},
+  {val:'Hot opportunity',                     cls:'darkgreen'}
+];
+
+// ─── HELPERS ──────────────────────────────────────────────────────────────────
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
-async function unlock() {
+
+function formatDate(iso) {
+  // e.g. "2026-03-16" → "2026-03-16"
+  return iso;
+}
+
+// ─── HEADER STATS ─────────────────────────────────────────────────────────────
+function renderHeader() {
+  const sorted = [...CALLS].sort((a,b) => a.date.localeCompare(b.date));
+  const first = sorted[0].date;
+  const last = sorted[sorted.length - 1].date;
+  const fmtFirst = new Date(first + 'T12:00:00').toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'});
+  const fmtLast  = new Date(last  + 'T12:00:00').toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'});
+  const today = new Date().toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'});
+  document.getElementById('header-meta').innerHTML =
+    `<span><strong>${CALLS.length}</strong>&nbsp;calls tracked</span>` +
+    `<span>Date range: ${fmtFirst} → ${fmtLast}</span>` +
+    `<span>Last updated: ${today}</span>`;
+}
+
+// ─── DOT CARD (groups calls by a field, renders colored initials dots) ─────────
+function buildDotCard(title, field, order, uncKey) {
+  // Group calls by field value
+  const groups = {};
+  for (const cat of order) groups[cat] = [];
+  for (const c of CALLS) {
+    const val = c[field];
+    if (groups[val] !== undefined) groups[val].push(c);
+  }
+
+  let html = `<div class="card"><h3>${esc(title)}</h3>`;
+  for (const cat of order) {
+    const calls = groups[cat] || [];
+    const isEmpty = calls.length === 0;
+    html += `<div class="dim-row">`;
+    html += `<span class="dim-label${isEmpty ? ' empty' : ''}">${esc(cat)}</span>`;
+    html += `<div class="dim-dots">`;
+    for (const c of calls) {
+      const isUnc = uncKey && c.unc && c.unc[uncKey];
+      const tooltip = esc(`${c.name} · ${c.co}`);
+      html += `<span class="dot ${c.rag}${isUnc ? ' uncertain' : ''}" data-name="${tooltip}">${esc(c.init)}</span>`;
+    }
+    html += `</div></div>`;
+  }
+  html += `</div>`;
+  return html;
+}
+
+// ─── BAR CARD (counts calls per category, shows percentage bar) ───────────────
+function buildBarCard(title, field, categories, noteFieldFn) {
+  const total = CALLS.length;
+
+  // Count per category
+  const counts = {};
+  const names = {};
+  for (const cat of categories) {
+    counts[cat.val] = 0;
+    names[cat.val] = [];
+  }
+  for (const c of CALLS) {
+    const val = c[field];
+    if (counts[val] !== undefined) {
+      counts[val]++;
+      names[val].push(c.name);
+    }
+  }
+
+  let html = `<div class="card"><h3>${esc(title)}</h3>`;
+  for (const cat of categories) {
+    const n = counts[cat.val];
+    const pct = Math.round((n / total) * 100);
+    const isZero = n === 0;
+    const fillCls = isZero ? 'zero' : (cat.cls ? cat.cls : '');
+    html += `<div class="bar-row">`;
+    html += `<span class="bar-label${isZero ? ' zero' : ''}">${esc(cat.val)}</span>`;
+    html += `<div class="bar-track">`;
+    if (isZero) {
+      html += `<div class="bar-fill zero" style="width:0%"></div>`;
+    } else {
+      html += `<div class="bar-fill ${fillCls}" style="width:${pct}%">${n}</div>`;
+    }
+    html += `</div>`;
+    html += `<span class="bar-count">${isZero ? '0 (0%)' : `${n} (${pct}%)`}</span>`;
+    html += `</div>`;
+  }
+
+  // Auto-generate note listing names per category
+  const noteParts = [];
+  for (const cat of categories) {
+    const ns = names[cat.val];
+    if (ns.length > 0) {
+      const label = noteFieldFn ? noteFieldFn(cat.val) : cat.val;
+      noteParts.push(`${esc(label)}: ${ns.map(esc).join(', ')}`);
+    }
+  }
+  html += `<p class="note">${noteParts.join('. ')}.</p>`;
+  html += `</div>`;
+  return html;
+}
+
+// Short labels for bar card notes
+function reactNoteLabel(val) {
+  const map = {
+    'Not demoed': 'Not demoed',
+    'Lukewarm interest': 'Lukewarm',
+    'Interested for self only': 'Self only',
+    'Somewhat interested - sharing with team': 'Somewhat',
+    'Very interested - sharing with team/others': 'Very interested',
+    'Interested as channel partner': 'Channel partner'
+  };
+  return map[val] || val;
+}
+function nextNoteLabel(val) {
+  const map = {
+    'None immediately': 'None',
+    'Check back in a few weeks/months': 'Check back',
+    'Internal discussion needed': 'Internal',
+    'Active opportunity': 'Active',
+    'Hot opportunity': 'Hot'
+  };
+  return map[val] || val;
+}
+
+// ─── DIMENSION GRID ───────────────────────────────────────────────────────────
+function renderDimGrid() {
+  const grid = document.getElementById('dim-grid');
+  let html = '';
+  html += buildDotCard('Job Role Type',            'role', ROLE_ORDER,  'role');
+  html += buildDotCard('Company Size',             'size', SIZE_ORDER,  'size');
+  html += buildDotCard('Company Industry',         'ind',  IND_ORDER,   null);
+  html += buildDotCard('Personal AI Competency',   'comp', COMP_ORDER,  'comp');
+  html += buildDotCard('Org-Level AI Enablement',  'enab', ENAB_ORDER,  null);
+  html += buildBarCard('Reaction to AI Builder',   'react', REACT_ORDER, reactNoteLabel);
+  html += buildBarCard('Next Steps',               'next',  NEXT_ORDER,  nextNoteLabel);
+  grid.innerHTML = html;
+}
+
+// ─── CONTACT LOG TABLE ────────────────────────────────────────────────────────
+function renderContactLog() {
+  // Sort by date descending
+  const sorted = [...CALLS].sort((a,b) => b.date.localeCompare(a.date));
+  const tbody = document.getElementById('contact-log');
+  let html = '';
+  for (const c of sorted) {
+    const nameHtml = c.li
+      ? `<strong><a href="${esc(c.li)}" target="_blank" style="color:#1a1a2e;text-decoration:underline;">${esc(c.name)}</a></strong>`
+      : `<strong>${esc(c.name)}</strong>`;
+    const posStyle = c.unc && c.unc.role ? ' font-style:italic;' : '';
+    const transcriptHtml = c.gUrl
+      ? `<a href="${esc(c.gUrl)}" target="_blank" style="color:#4299e1;font-size:11px;">View</a>`
+      : `<span style="color:#cbd5e0;font-size:11px;">N/A</span>`;
+    const compCls   = (c.unc && c.unc.comp)  ? ' uncertain' : '';
+    const reactCls  = (c.unc && c.unc.react) ? ' uncertain' : '';
+    const sizeCls   = (c.unc && c.unc.size)  ? ' uncertain' : '';
+    const nextCls   = c.tNextCls ? ` class="${esc(c.tNextCls)}"` : '';
+
+    html += `<tr>`;
+    html += `<td>${esc(c.date)}</td>`;
+    html += `<td>${nameHtml}<br><span style="font-size:11px;color:#718096;${posStyle}">${esc(c.pos)}</span></td>`;
+    html += `<td><a href="${esc(c.coUrl)}" target="_blank" style="color:#4299e1;">${esc(c.co)}</a></td>`;
+    html += `<td>${esc(c.tInd)}</td>`;
+    html += `<td${sizeCls ? ` class="uncertain"` : ''}>${esc(c.size)}</td>`;
+    html += `<td${compCls ? ` class="uncertain"` : ''}>${esc(c.tComp)}</td>`;
+    html += `<td>${esc(c.tEnab)}</td>`;
+    html += `<td${reactCls ? ` class="uncertain"` : ''}>${esc(c.tReact)}</td>`;
+    html += `<td${nextCls}>${esc(c.tNext)}</td>`;
+    html += `<td>${transcriptHtml}</td>`;
+    html += `</tr>`;
+  }
+  tbody.innerHTML = html;
+}
+
+// ─── PASSWORD GATE ────────────────────────────────────────────────────────────
+function unlock() {
   const pw = document.getElementById('pw').value;
   if (pw === 'leland2026') {
     document.getElementById('gate').style.display = 'none';
@@ -489,7 +410,13 @@ async function unlock() {
     document.getElementById('err').style.display = 'block';
   }
 }
+
+// ─── INIT ─────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
+  renderHeader();
+  renderDimGrid();
+  renderContactLog();
+
   if (sessionStorage.getItem('authed') === '1') {
     document.getElementById('gate').style.display = 'none';
     document.getElementById('dashboard').style.display = 'block';
