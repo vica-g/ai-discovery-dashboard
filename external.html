@@ -324,9 +324,20 @@
         <option value="realestate">Real Estate</option>
       </select>
     </div>
+    <div class="filter-group">
+      <span class="filter-label">Function</span>
+      <select class="filter-select" id="functionSelect" onchange="updatePersona()">
+        <option value="">Select your function</option>
+        <option value="investor">Investor</option>
+        <option value="founder">Founder</option>
+        <option value="strategy">Strategy &amp; Operations</option>
+        <option value="product">Product &amp; Engineering</option>
+        <option value="gtm">Go-to-Market</option>
+      </select>
+    </div>
   </div>
   <div class="persona-result" id="personaResult">
-    <p class="persona-empty">Select an industry above to see insights relevant to peers in similar roles.</p>
+    <p class="persona-empty">Select an industry or function above to see insights relevant to peers in similar roles.</p>
   </div>
 </div>
 
@@ -528,20 +539,87 @@ const PERSONA_INSIGHTS = {
   }
 };
 
+const FUNCTION_INSIGHTS = {
+  investor: {
+    label: 'Investors',
+    bullets: [
+      'Most eager to adopt AI but consistently blocked by compliance (SEC archiving, MNPI rules), procurement lock-in, and time. These are structural features, not temporary friction.',
+      'Dominant personal use case: research acceleration — company screening, expert call prep, document review. Highest-ROI agentic deployment: deal sourcing automation (list building, outbound sequencing, data enrichment). One firm moved from 10 to 100 companies screened per hour.',
+      'PE portco distribution model is a recurring structural opportunity: three-layer demand structure of firm employees, investors, and portfolio companies all wanting AI capability. Preferred format is opt-in, short, immediately practical — not mandated.',
+      'Small growth-stage PE firms are moving fastest. Large regulated hedge funds and firms with SEC archiving requirements are the slowest. Shadow AI tools (unapproved note-taking apps) are pervasive at the latter — signals culture running ahead of policy.',
+      'Partners and senior investors consistently report wanting to adopt more but not finding time. <em>"I don\'t have time to do this shit."</em> Training for this group must be task-specific, immediately applicable, and require minimal setup.'
+    ]
+  },
+  founder: {
+    label: 'Founders',
+    bullets: [
+      'Common dynamic: AI-as-headcount — using AI to fill roles that budget doesn\'t allow. Chief of staff, developer, researcher. <em>"My chief of staff is an AI agent. I\'m not gonna hire it — I\'m just gonna program it myself."</em>',
+      'Advanced founders treat AI as an organizational design tool, not just a productivity tool. AI proficiency is increasingly used as a baseline hiring criterion and embedded into team governance structures.',
+      'Gotchas are typically about bandwidth, not compliance. Founders know exactly what they should be building but operational crises consume all available time.',
+      'The hardest founder challenge: converting the rest of the org when you\'re the one passionate convert with full organizational access. Getting six converts across an entire company is a genuine achievement.',
+      'Founders are often the de facto AI trainer for their companies and benefit most from external structure that helps them scale what they know — not just build more themselves.'
+    ]
+  },
+  strategy: {
+    label: 'Strategy & Operations',
+    bullets: [
+      'Widest range of AI sophistication of any function — from eliminating manual SQL entirely and running analysis 12x faster, to being afraid to install Claude on a work laptop in case IT blocks it.',
+      'Large use case portfolio: SQL automation, recurring meeting prep, presentation generation, account handoffs, org design analysis, RFP automation, financial modeling, document review.',
+      'Dominant blocker is not knowledge or motivation — it\'s the data connectivity gap. S&O leaders with AI connected to their actual data sources (Salesforce, databases, email, calendar) report dramatically higher productivity than those with unconnected chatbot access.',
+      'Compliance varies by sector (healthcare S&O is HIPAA-constrained, public company S&O is MNPI-constrained, defense S&O is GovCloud-constrained) but the underlying tool needs are similar.',
+      'Most practically useful training focus for this function: MCP setup, workflow identification, and context management — not conceptual AI literacy.'
+    ]
+  },
+  product: {
+    label: 'Product & Engineering',
+    bullets: [
+      'PMs are in a middle position: downstream of fully agentic engineering teams and upstream of business functions still at chatbot level — often the bridge between the two.',
+      'PM-specific stack that\'s emerging: ChatGPT Projects for persistent preference memory, Gemini Gems for brand-formatted slides, Figma Make for in-context UI mockups, Notebook LM for multi-document synthesis, Reddit scrapers for community-based market intel.',
+      'Key gotcha: workflow automation tools (Zapier-equivalents) are often blocked on the business side even at companies that are open with other AI tools.',
+      'AI fluency metrics can backfire — producing high-volume, low-quality AI work when people optimize for the metric rather than the outcome. <em>"AI fluency is showing up right in our report card."</em>',
+      'Most productive PM AI format: hackathons where everyone ships to production — forces a skill PMs are typically insulated from and unlocks a new dimension of product-building capability.'
+    ]
+  },
+  gtm: {
+    label: 'Go-to-Market',
+    bullets: [
+      'Most consistently behind engineering and product at the same company — and most urgently aware of the gap. GTM teams often describe doing week-long off-sites just to catch up to where the technical teams have been for a year.',
+      'Highest-ROI GTM use cases: RFP automation from a historical answer corpus, pre-meeting account research via Salesforce MCP, conference target prioritization, written comms and proposal quality improvement.',
+      'AI cold outbound is a dead channel — AI-generated sequences have saturated and poisoned email as a medium. Relationship-based, in-person GTM is the contrarian move for founders. <em>"The whole market has moved against AI outbound — it\'s ruined cold email for everyone."</em>',
+      'Most interesting GTM structural innovation: agent productionization pipeline — individual contributors build agents, a dedicated team evaluates and productionizes the best ones, and the whole GTM org can select them from a menu. Scales the work of the most advanced builders without requiring everyone to be an expert.'
+    ]
+  }
+};
+
 function updatePersona() {
-  const sel = document.getElementById('personaSelect');
+  const indSel = document.getElementById('personaSelect');
+  const fnSel = document.getElementById('functionSelect');
   const result = document.getElementById('personaResult');
-  const key = sel.value;
-  if (!key || !PERSONA_INSIGHTS[key]) {
-    result.innerHTML = '<p class="persona-empty">Select an industry above to see insights relevant to peers in similar roles.</p>';
+  const indKey = indSel.value;
+  const fnKey = fnSel.value;
+
+  if (!indKey && !fnKey) {
+    result.innerHTML = '<p class="persona-empty">Select an industry or function above to see insights relevant to peers in similar roles.</p>';
     return;
   }
-  const persona = PERSONA_INSIGHTS[key];
-  let html = `<span class="persona-label">${esc(persona.label)}</span><ul class="persona-bullets">`;
-  for (const b of persona.bullets) {
-    html += `<li>${b}</li>`;
+
+  let html = '';
+
+  if (indKey && PERSONA_INSIGHTS[indKey]) {
+    const p = PERSONA_INSIGHTS[indKey];
+    html += `<span class="persona-label">${esc(p.label)}</span><ul class="persona-bullets">`;
+    for (const b of p.bullets) html += `<li>${b}</li>`;
+    html += '</ul>';
   }
-  html += '</ul>';
+
+  if (fnKey && FUNCTION_INSIGHTS[fnKey]) {
+    const f = FUNCTION_INSIGHTS[fnKey];
+    if (html) html += '<div style="margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.08);"></div>';
+    html += `<span class="persona-label" style="margin-top:${indKey ? '20px' : '0'};display:block;">${esc(f.label)}</span><ul class="persona-bullets">`;
+    for (const b of f.bullets) html += `<li>${b}</li>`;
+    html += '</ul>';
+  }
+
   result.innerHTML = html;
 }
 
