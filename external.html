@@ -9,10 +9,8 @@
   :root {
     --bg:             #000000;
     --bg-card:        #000000;
-    --bg-card-hover:  #0a0a0a;
     --border:         #484848;
     --accent:         #A5E446;
-    --accent-dim:     rgba(165,228,70,.1);
     --text-primary:   #ffffff;
     --text-secondary: rgba(255,255,255,.85);
     --text-tertiary:  rgba(255,255,255,.65);
@@ -21,388 +19,325 @@
     --font-body:      'Calibre', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: var(--font-body);
-    background: var(--bg);
-    color: var(--text-primary);
-    -webkit-font-smoothing: antialiased;
-    line-height: 1.5;
-  }
+  body { font-family: var(--font-body); background: var(--bg); color: var(--text-primary); -webkit-font-smoothing: antialiased; line-height: 1.5; }
+  .page { max-width: 1100px; margin: 0 auto; padding: 64px 48px 80px; }
 
-  .page {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 64px 48px 80px;
-  }
+  /* HEADER */
+  .report-header { border-bottom: 1px solid var(--border); padding-bottom: 40px; margin-bottom: 48px; }
+  .report-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 32px; }
+  .report-logo-tag { font-family: var(--font-meta); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); border: 1px solid rgba(165,228,70,0.3); border-radius: 3px; padding: 3px 8px; }
+  .report-title { font-family: var(--font-heading); font-size: 2.4rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 14px; }
+  .report-desc { font-size: 15px; color: var(--text-secondary); line-height: 1.6; max-width: 680px; }
 
-  /* ── HEADER ── */
-  .report-header {
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 40px;
-    margin-bottom: 48px;
-  }
-  .report-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 32px;
-  }
-  .report-logo-tag {
-    font-family: var(--font-meta);
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--accent);
-    border: 1px solid rgba(165,228,70,0.3);
-    border-radius: 3px;
-    padding: 3px 8px;
-  }
-  .report-title {
-    font-family: var(--font-heading);
-    font-size: 2.4rem;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    color: var(--text-primary);
-    margin-bottom: 14px;
-  }
-  .report-desc {
-    font-size: 15px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    max-width: 680px;
-  }
+  /* SECTION */
+  .report-section { margin-bottom: 56px; }
+  .section-label { font-family: var(--font-meta); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-tertiary); display: block; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
 
-  /* ── SECTION ── */
-  .report-section {
-    margin-bottom: 56px;
-  }
-  .section-label {
-    font-family: var(--font-meta);
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--text-tertiary);
-    display: block;
-    margin-bottom: 20px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border);
-  }
-  h2.section-title {
-    font-family: var(--font-heading);
-    font-size: 1.4rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    color: var(--text-primary);
-    margin-bottom: 24px;
-  }
-  h3.subsection-title {
-    font-family: var(--font-heading);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 12px;
-  }
+  /* CHART GRIDS */
+  .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .charts-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .chart-card { border: 1px dashed var(--border); border-radius: 8px; padding: 24px; }
+  .chart-card-title { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
+  .chart-card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 20px; }
 
-  /* ── CHART CARDS ── */
-  .charts-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-  .charts-grid-3 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
-  }
-  .chart-card {
-    border: 1px dashed var(--border);
-    border-radius: 8px;
-    padding: 24px;
-  }
-  .chart-card-title {
-    font-family: var(--font-heading);
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 6px;
-  }
-  .chart-card-desc {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.5;
-    margin-bottom: 20px;
-  }
-  .loading-note {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-meta);
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--text-secondary);
-    font-style: italic;
-  }
-  .loading-dot {
-    width: 5px; height: 5px; border-radius: 50%;
-    background: var(--accent); opacity: 0.6;
-    flex-shrink: 0;
-    animation: pulse 1.8s ease-in-out infinite;
-  }
-  @keyframes pulse { 0%,100%{opacity:0.6} 50%{opacity:0.15} }
-
-  /* Bar chart */
-  .bar-row {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-bottom: 14px;
-  }
-  .bar-row-top {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 8px;
-  }
-  .bar-label {
-    font-family: var(--font-body);
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    line-height: 1.3;
-  }
-  .bar-count {
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    color: var(--text-tertiary);
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .bar-track {
-    width: 100%; height: 8px;
-    background: rgba(255,255,255,0.08);
-    border-radius: 2px; overflow: hidden;
-  }
-  .bar-fill {
-    height: 100%; background: var(--accent); border-radius: 2px;
-    transition: width 1s cubic-bezier(0.22,1,0.36,1);
-  }
+  /* BARS */
+  .bar-row { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
+  .bar-row-top { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+  .bar-label { font-family: var(--font-body); font-size: 0.875rem; color: var(--text-secondary); line-height: 1.3; }
+  .bar-count { font-family: var(--font-body); font-size: 0.8rem; color: var(--text-tertiary); white-space: nowrap; flex-shrink: 0; }
+  .bar-track { width: 100%; height: 8px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; }
+  .bar-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 1s cubic-bezier(0.22,1,0.36,1); }
   .bar-fill.dim { background: rgba(165,228,70,0.45); }
 
-  /* ── INSIGHTS CARDS ── */
-  .insights-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  .insight-card {
-    border: 1px solid var(--border);
-    border-radius: 0;
-    padding: 28px 32px;
-  }
+  /* MODEL NOTE */
+  .model-note-block { margin-top: 16px; padding: 14px 18px; border: 1px solid var(--border); border-radius: 6px; font-size: 13px; color: var(--text-tertiary); line-height: 1.65; }
+
+  /* INSIGHTS STACK */
+  .insights-stack { display: flex; flex-direction: column; gap: 2px; }
+  .insight-card { border: 1px solid var(--border); border-radius: 0; padding: 28px 32px; }
   .insight-card:first-child { border-radius: 8px 8px 0 0; }
   .insight-card:last-child  { border-radius: 0 0 8px 8px; }
-  .insight-card-label {
-    font-family: var(--font-meta);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--accent);
-    margin-bottom: 14px;
-  }
-  .insight-card-title {
-    font-family: var(--font-heading);
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 16px;
-    line-height: 1.3;
-  }
-  .insight-bullets {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .insight-bullets li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 15px;
-    color: var(--text-secondary);
-    line-height: 1.55;
-  }
-  .insight-bullets li::before {
-    content: '–';
-    color: var(--accent);
-    flex-shrink: 0;
-    margin-top: 0;
-  }
-  .bullet-placeholder {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 4px 0;
-  }
-  .bullet-placeholder::before {
-    content: '–';
-    color: rgba(165,228,70,0.3);
-    flex-shrink: 0;
-  }
-  .bullet-line {
-    height: 10px;
-    background: rgba(255,255,255,0.07);
-    border-radius: 3px;
-    animation: shimmer 2s infinite;
-    background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 75%);
-    background-size: 200% 100%;
-  }
-  @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
-  .pending-note {
-    font-family: var(--font-meta);
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text-secondary);
-    margin-top: 18px;
-    padding-top: 14px;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
+  .insight-card-label { font-family: var(--font-meta); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 14px; }
+  .insight-card-title { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 600; color: var(--text-primary); margin-bottom: 20px; line-height: 1.3; }
+  .insight-bullets { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+  .insight-bullets li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+  .insight-bullets li::before { content: '–'; color: var(--accent); flex-shrink: 0; }
+  .insight-bullets li em { color: var(--text-tertiary); font-style: italic; }
 
-  /* ── FILTER SECTION ── */
-  .filter-row {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
-  }
-  .filter-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    flex: 1;
-    min-width: 200px;
-  }
-  .filter-label {
-    font-family: var(--font-meta);
-    font-size: 0.6rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--text-tertiary);
-  }
-  .filter-select {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 0;
-    color: var(--text-secondary);
-    padding: 10px 14px;
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    text-transform: none;
-    letter-spacing: normal;
-    cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23808080' stroke-width='1.2'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    padding-right: 32px;
-    width: 100%;
-  }
+  /* UPSKILLING SUB-GROUPS */
+  .upskilling-group { margin-bottom: 22px; }
+  .upskilling-group-title { font-family: var(--font-meta); font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-tertiary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+
+  /* AWARDS BLOCK */
+  .awards-block { margin-top: 24px; padding: 16px 20px; background: rgba(165,228,70,0.05); border-radius: 6px; border: 1px solid rgba(165,228,70,0.2); }
+  .awards-label { font-family: var(--font-meta); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 14px; display: block; }
+  .awards-bullets { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .awards-bullets li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: rgba(165,228,70,0.8); line-height: 1.55; }
+  .awards-bullets li::before { content: '★'; color: var(--accent); flex-shrink: 0; }
+
+  /* FILTER / PERSONA */
+  .filter-row { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+  .filter-group { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 200px; }
+  .filter-label { font-family: var(--font-meta); font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-tertiary); }
+  .filter-select { background: var(--bg); border: 1px solid var(--border); border-radius: 0; color: var(--text-secondary); padding: 10px 14px; font-family: var(--font-body); font-size: 0.9rem; cursor: pointer; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23808080' stroke-width='1.2'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; width: 100%; }
   .filter-select:focus { outline: none; border-color: rgba(165,228,70,0.5); }
-  .filter-result {
-    border: 1px dashed var(--border);
-    border-radius: 8px;
-    padding: 20px 24px;
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-  }
+  .persona-result { border: 1px dashed var(--border); border-radius: 8px; padding: 24px; min-height: 80px; }
+  .persona-empty { font-size: 14px; color: var(--text-tertiary); }
+  .persona-label { font-family: var(--font-meta); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 14px; display: block; }
+  .persona-bullets { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .persona-bullets li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+  .persona-bullets li::before { content: '–'; color: var(--accent); flex-shrink: 0; }
+  .persona-bullets li em { color: var(--text-tertiary); font-style: italic; }
 
-  /* ── ABOUT SECTION ── */
-  .about-card {
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-    padding: 52px 48px;
-    min-height: 320px;
-    display: flex;
-    align-items: center;
-    background: #0a0a0a;
-  }
-  .about-card-bg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 30%;
-    z-index: 0;
-    display: block;
-  }
-  .about-card-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0.4) 100%);
-    z-index: 1;
-  }
-  .about-card-inner {
-    max-width: 520px;
-    position: relative;
-    z-index: 2;
-  }
-  .about-card p {
-    font-size: 15px;
-    color: rgba(255,255,255,0.85);
-    line-height: 1.7;
-    margin-bottom: 16px;
-  }
-  .about-link {
-    font-family: var(--font-meta);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: 4px;
-  }
+  /* ABOUT */
+  .about-card { border-radius: 8px; overflow: hidden; position: relative; padding: 52px 48px; min-height: 320px; display: flex; align-items: center; background: #0a0a0a; }
+  .about-card-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; z-index: 0; }
+  .about-card-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0.4) 100%); z-index: 1; }
+  .about-card-inner { max-width: 520px; position: relative; z-index: 2; }
+  .about-card p { font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 16px; }
+  .about-link { font-family: var(--font-meta); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; }
   .about-link:hover { text-decoration: underline; }
 
-  /* ── FOOTER ── */
-  .report-footer {
-    border-top: 1px solid var(--border);
-    padding-top: 28px;
-    margin-top: 8px;
-  }
-  .report-footer p {
-    font-size: 11px;
-    color: var(--text-secondary);
-    line-height: 1.8;
-  }
+  /* FOOTER */
+  .report-footer { border-top: 1px solid var(--border); padding-top: 28px; margin-top: 8px; }
+  .report-footer p { font-size: 11px; color: var(--text-secondary); line-height: 1.8; }
 
   @media (max-width: 700px) {
     .page { padding: 40px 24px 60px; }
     .charts-grid { grid-template-columns: 1fr; }
     .charts-grid-3 { grid-template-columns: 1fr; }
     .report-title { font-size: 1.8rem; }
+    .insight-card { padding: 20px; }
   }
 </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- HEADER -->
-  <header class="report-header">
-    <div class="report-logo">
-      <svg width="78" height="18" viewBox="0 0 99 23" fill="none" xmlns="http://www.w3.org/2000/svg" style="color:#ffffff;">
+<!-- HEADER -->
+<header class="report-header">
+  <div class="report-logo">
+    <svg width="78" height="18" viewBox="0 0 99 23" fill="none" xmlns="http://www.w3.org/2000/svg" style="color:#ffffff;">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M20.5721 2.33411L6.8221 6.45911L2.23877 20.6674L16.4471 16.5424L20.5721 2.33411ZM11.4052 13.7922C12.6709 13.7922 13.6969 12.7662 13.6969 11.5006C13.6969 10.2349 12.6709 9.2089 11.4052 9.2089C10.1396 9.2089 9.11354 10.2349 9.11354 11.5006C9.11354 12.7662 10.1396 13.7922 11.4052 13.7922Z" fill="currentColor"/>
+      <path d="M80.2848 12.707V19.1726H83.4802V12.0081C83.4802 9.11227 82.6064 6.86554 79.1365 6.86554C77.389 6.86554 76.1658 7.63941 75.5168 8.91256H75.4419L75.4668 7.09021H72.2715V19.1726H75.4668V13.1564C75.4668 11.1343 76.1409 9.48672 78.113 9.48672C79.9603 9.48672 80.2848 10.9097 80.2848 12.707Z" fill="currentColor"/>
+      <path d="M66.415 17.7747L66.4649 19.1726H69.5355V12.2577C69.5355 10.2107 69.0861 9.11227 68.2124 8.2635C67.3137 7.41474 66.0905 6.86554 63.9436 6.86554C61.8467 6.86554 60.1491 7.58949 59.2255 8.13869L60.1991 10.1857C60.7233 9.78629 62.0464 9.18716 63.644 9.18716C65.3166 9.18716 66.3401 9.91111 66.3401 11.4589V11.7834L63.4443 11.9831C60.948 12.1578 58.4766 13.1314 58.4766 15.6527C58.4766 18.1741 60.3738 19.4472 62.7204 19.4472C64.5178 19.4472 65.9157 18.6484 66.415 17.7747ZM64.1932 13.8554L66.3651 13.7305V15.9523C65.9407 16.5514 65.017 17.2754 63.7689 17.2754C62.4458 17.2754 61.6719 16.5764 61.6719 15.5529C61.6719 14.5294 62.4957 13.9552 64.1932 13.8554Z" fill="currentColor"/>
+      <path d="M41.9788 14.1549H50.8659C50.8659 14.1549 50.9158 13.1564 50.9158 12.5323C50.9158 9.31198 48.6691 6.86554 44.9495 6.86554C41.5045 6.86554 38.6836 9.46176 38.6836 13.3311C38.6836 17.2255 41.3797 19.4472 45.0244 19.4472C47.9701 19.4472 49.7924 18.199 50.4664 17.5001L49.2183 15.7776C48.6441 16.2768 47.1962 17.0008 45.5736 17.0008C43.7512 17.0008 42.2784 16.0771 41.9788 14.1549ZM44.9245 9.23709C47.1712 9.23709 47.6705 10.7599 47.7204 12.0829H41.9289C42.0287 10.5602 43.0273 9.23709 44.9245 9.23709Z" fill="currentColor"/>
+      <path d="M31.7384 3.55707V16.4751H37.7546V19.1711H28.5181V3.55707L31.7384 3.55707Z" fill="currentColor"/>
+      <path d="M56.332 3.55707V19.1711H53.1616V3.55707L56.332 3.55707Z" fill="currentColor"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M98.5944 3.55707V19.1711H95.5738L95.5488 17.2739H95.4739C94.5003 18.8216 93.0025 19.4457 91.3299 19.4457C87.7851 19.4457 85.6133 16.6997 85.6133 13.105C85.6133 9.68494 87.885 6.86405 91.5546 6.86405C93.1773 6.86405 94.5503 7.46318 95.399 8.76129H95.449C95.424 8.21209 95.424 7.56303 95.424 6.71427V3.55707L98.5944 3.55707ZM88.8586 13.105C88.8586 15.2019 90.1567 16.8495 92.2286 16.8495C94.1508 16.8495 95.4989 15.3767 95.4989 13.105C95.4989 11.0829 94.1758 9.31049 92.1288 9.31049C90.0568 9.31049 88.8586 11.0829 88.8586 13.105Z" fill="currentColor"/>
+    </svg>
+    <span class="report-logo-tag">AI Discovery</span>
+  </div>
+  <h1 class="report-title">AI Upskilling &amp; Enablement Insights</h1>
+  <p class="report-desc">A snapshot of how 50 GSB classmates (primarily MBA '21 and '22) are using and rolling out AI across their companies.</p>
+</header>
+
+<!-- SAMPLE BREAKDOWN -->
+<div class="report-section">
+  <span class="section-label">Sample Breakdown</span>
+  <div class="charts-grid-3">
+    <div class="chart-card">
+      <div class="chart-card-title">Job Function</div>
+      <div class="chart-card-desc">Investors and strategy/ops roles dominate.</div>
+      <div id="bars-role"></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-card-title">Company Size</div>
+      <div class="chart-card-desc">Spans solo founders to 10K+ enterprises.</div>
+      <div id="bars-size"></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-card-title">Company Industry</div>
+      <div class="chart-card-desc">Tech (n=17) and Financial Services (n=13) lead.</div>
+      <div id="bars-ind"></div>
+    </div>
+  </div>
+</div>
+
+<!-- AI ENABLEMENT -->
+<div class="report-section">
+  <span class="section-label">AI Enablement</span>
+  <div class="charts-grid">
+    <div class="chart-card">
+      <div class="chart-card-title">Personal AI Competency</div>
+      <div class="chart-card-desc">Half the cohort is still using AI as a chatbot. Only ~10% are actively building agents.</div>
+      <div id="bars-comp"></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-card-title">Org-Level AI Enablement</div>
+      <div class="chart-card-desc">Enterprise licenses are common — but only a third of orgs show culture-level AI adoption.</div>
+      <div id="bars-enab"></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODELS BEING USED -->
+<div class="report-section">
+  <span class="section-label">Models being used</span>
+  <div class="charts-grid">
+
+    <div class="chart-card">
+      <div class="chart-card-title">Personal Model Usage</div>
+      <div class="chart-card-desc">What participants use day-to-day as individuals. Counts are not mutually exclusive — many use multiple tools.</div>
+      <div class="bar-row"><div class="bar-row-top"><span class="bar-label">Claude</span><span class="bar-count">26 (52%)</span></div><div class="bar-track"><div class="bar-fill" style="width:0%" data-w="52%"></div></div></div>
+      <div class="bar-row"><div class="bar-row-top"><span class="bar-label">ChatGPT / OpenAI</span><span class="bar-count">24 (48%)</span></div><div class="bar-track"><div class="bar-fill dim" style="width:0%" data-w="48%"></div></div></div>
+      <div class="bar-row"><div class="bar-row-top"><span class="bar-label">Gemini</span><span class="bar-count">7 (14%)</span></div><div class="bar-track"><div class="bar-fill dim" style="width:0%" data-w="14%"></div></div></div>
+      <div class="bar-row"><div class="bar-row-top"><span class="bar-label">Copilot</span><span class="bar-count">6 (12%)</span></div><div class="bar-track"><div class="bar-fill dim" style="width:0%" data-w="12%"></div></div></div>
+      <div class="bar-row"><div class="bar-row-top"><span class="bar-label">Granola</span><span class="bar-count">3 (6%)</span></div><div class="bar-track"><div class="bar-fill dim" style="width:0%" data-w="6%"></div></div></div>
+      <div class="bar-row"><div class="bar-row-top"><span class="bar-label">AlphaSense</span><span class="bar-count">2 (4%)</span></div><div class="bar-track"><div class="bar-fill dim" style="width:0%" data-w="4%"></div></div></div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-card-title">Org / Work Deployment</div>
+      <div class="chart-card-desc">What's approved or actively deployed at their company. Counts are not mutually exclusive.</div>
+      <div class="bar-row"><div class="bar-row-top"><span class="bar-label">ChatGPT / OpenAI Enterprise</span><span class="bar-count">20 (40%)</span></div><div class="bar-track"><div class="bar-fill" style="width:0%" data-w="40%"></div></div></div>
+      <div class="bar-row"><div class="bar-row-top"><span class="bar-label">Claude Enterprise / Cowork</span><span class="bar-count">19 (38%)</span></div><div class="bar-track"><div class="bar-fill dim" style="width:0%" data-w="38%"></div></div></div>
+      <div class="bar-row"><div class="bar-row-top"><span class="bar-label">Microsoft Copilot</span><span class="bar-count">11 (22%)</span></div><div class="bar-track"><div class="bar-fill dim" style="width:0%" data-w="22%"></div></div></div>
+      <div class="bar-row"><div class="bar-row-top"><span class="bar-label">Claude Code</span><span class="bar-count">8 (16%)</span></div><div class="bar-track"><div class="bar-fill dim" style="width:0%" data-w="16%"></div></div></div>
+      <div class="bar-row"><div class="bar-row-top"><span class="bar-label">Cursor</span><span class="bar-count">7 (14%)</span></div><div class="bar-track"><div class="bar-fill dim" style="width:0%" data-w="14%"></div></div></div>
+      <div class="bar-row"><div class="bar-row-top"><span class="bar-label">Gemini Enterprise</span><span class="bar-count">6 (12%)</span></div><div class="bar-track"><div class="bar-fill dim" style="width:0%" data-w="12%"></div></div></div>
+      <div class="bar-row"><div class="bar-row-top"><span class="bar-label">n8n</span><span class="bar-count">4 (8%)</span></div><div class="bar-track"><div class="bar-fill dim" style="width:0%" data-w="8%"></div></div></div>
+      <div class="bar-row"><div class="bar-row-top"><span class="bar-label">Gong</span><span class="bar-count">3 (6%)</span></div><div class="bar-track"><div class="bar-fill dim" style="width:0%" data-w="6%"></div></div></div>
+      <div class="bar-row"><div class="bar-row-top"><span class="bar-label">AlphaSense</span><span class="bar-count">2 (4%)</span></div><div class="bar-track"><div class="bar-fill dim" style="width:0%" data-w="4%"></div></div></div>
+    </div>
+
+  </div>
+  <div class="model-note-block">
+    Many participants use multiple tools — these counts are not mutually exclusive. Claude and ChatGPT are the dominant personal tools by a wide margin. Gemini adoption is primarily driven by Google Workspace integration and BAA requirements in healthcare. Copilot appears where the Microsoft ecosystem is mandated. Several participants explicitly noted switching from ChatGPT to Claude during the period of these calls. On the org side, many companies maintain dual licenses with different teams on different tools, and several are actively in transition (ChatGPT → Claude, Gemini → Claude). Engineering teams are consistently ahead of GTM and operations in AI tool adoption. Specialized tools (Rovo, Runlayer, BXAI, Amazon Think Cloud) appear at n=1 each.
+  </div>
+</div>
+
+<!-- WHAT WE'RE HEARING -->
+<div class="report-section">
+  <span class="section-label">What we're hearing across calls</span>
+  <div class="insights-stack">
+
+    <!-- PATTERNS -->
+    <div class="insight-card">
+      <div class="insight-card-label">General insights</div>
+      <div class="insight-card-title">Patterns on how to use AI most effectively for personal and professional efficiency, enablement, and competence</div>
+      <ul class="insight-bullets">
+        <li><strong>AI is the new "go do research on this" — n=18, all industries and functions.</strong> AI consistently replaces the first 1–3 hours of any research task — not the task itself. From VC deal screening (one firm went from 10 to 100 companies screened per hour) to first-pass market analysis and due diligence, output is treated as a starting point, not a final answer. <em>"Go do a big research project and give me all of your sources — the sources themselves tell you a lot."</em></li>
+        <li><strong>Connecting AI to your actual data is the real unlock — n=16.</strong> Without CRM, database, Slack, email, and calendar connected, enterprise AI is "a glorified chatbot." With connectors, use cases compound: meeting prep, account handoffs, deal screening, and financial automation all get meaningfully faster. The most frustrated users are almost always those stuck with unconnected tools. <em>"The place I get the most value is connecting it to our data sources."</em></li>
+        <li><strong>AI as always-on cognitive partner — n=14.</strong> The most effective individual users treat AI as an iterative thinking partner, not a one-shot output machine. They debate it, do a first pass, let it push back, and load it with personal context upfront. Key differentiator from basic chatbot use: the human-in-the-loop iterative loop. <em>"I debate with it a lot. I'll do a first pass, let it iterate."</em></li>
+        <li><strong>Automation of repeatable, structured workflows — n=13.</strong> Clearest ROI comes from high-frequency, structured, previously manual work: weekly deal newsletters, RFP population from a historical answer corpus, Excel diligence analyses, nightly expense logging. Method: decompose the process first ("put each step on a Post-it, go one at a time"). Rule of thumb: automate when you're "at the rinse and repeat stage."</li>
+        <li><strong>Peer sharing is the primary learning channel — n=12.</strong> Informal channels — "build with AI" Slack channels, all-hands demos, hackathons — consistently spread AI capability faster than formal training programs. The most effective versions have psychological safety built in: channels that explicitly welcome failures alongside wins. <em>"We have an active Slack channel: hey, I did something cool. Or, I totally failed here."</em></li>
+        <li><strong>Forcing mechanisms drive real adoption — n=12.</strong> Optional encouragement consistently produces low adoption. High-uptake organizations all use explicit forcing: mandatory AI projects at weekly meetings, AI fluency in performance reviews, no-human-code experiments, ship-to-production hackathons. Mandating improvement without a mechanism just produces checkbox behavior. <em>"You can't come to the meeting unless you have an AI project to show — and it can't be something simple."</em></li>
+      </ul>
+      <div class="awards-block">
+        <span class="awards-label">Most Innovative Awards go to...</span>
+        <ul class="awards-bullets">
+          <li><strong>L1/L2/L3 Attribution Taxonomy:</strong> One cleantech startup formalized how much AI contributed to every work product — L1 (human-led), L2 (AI-assisted), L3 (AI-generated). Solves the "voice authenticity" problem and gives teams a shared language for AI involvement. No one else in the dataset has formalized this.</li>
+          <li><strong>Voice-Activated Ambient AI:</strong> One senior PM runs remote agents via voice while driving, walking, and during other daily activities — treating AI as an always-on operating mode rather than a discrete tool session.</li>
+          <li><strong>Personal AI Lab at Home:</strong> One senior engineering leader built a rack-mount home server with AI managing smart shades (tracking sunrise, sunset, and sun angle), flight tracking via antenna, and home automation — treating personal life as an R&D environment for AI systems thinking.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- GOTCHAS -->
+    <div class="insight-card">
+      <div class="insight-card-label">Gotchas, learnings, failures</div>
+      <div class="insight-card-title">Things people wish they'd known earlier, mistakes that derailed AI deployments, and late realizations</div>
+      <ul class="insight-bullets">
+        <li><strong>Enterprise tool approval is a multi-month blocking event — n=15.</strong> Six months to approve a single tool is not an outlier — it's the median experience at companies above 1,000 employees. And it compounds: tool approval, connector approval, and MCP integration approval are three separate queues. Many teams end up with enterprise licenses that are effectively useless because nothing is connected. <em>"It took us six months to get ChatGPT approved. We're hoping Claude takes less."</em></li>
+        <li><strong>Access without training: the rollout that never arrives — n=14.</strong> The single most repeated deployment failure: secure a license, send a Slack message, point people at basic tutorials, consider the job done. Result: 5–10% who were already motivated adopt; 90% use it sporadically or not at all. Promising department-level tailored training that then gets cancelled is worse than saying nothing — it creates expectation, then withdraws it. <em>"When they gave us access they were like, start exploring on your own. We're gonna have department-level sessions. But nothing's actually happened yet."</em></li>
+        <li><strong>Tool churn anxiety — n=10.</strong> Early adopters are often the most anxious: they invest time mastering a tool, then it gets superseded. One ops leader went all-in on Cursor, then felt behind when Claude Code became the standard months later. Practical implication: learning tools is a less durable investment than learning principles — process decomposition, context management, and iterative loops transfer; specific tool fluency doesn't. <em>"By the time I've built something, I'm like, oh, actually I could do this differently."</em></li>
+        <li><strong>Shadow IT as a symptom of governance failure — n=8.</strong> Shadow AI is pervasive at organizations with strict IT governance — unapproved tools on personal accounts, off-the-books agents, recording all meetings in unapproved apps. Pattern: the more conservative the official AI policy, the more aggressive the workarounds. The individuals doing this are typically the most capable AI adopters in the org. <em>"We built an AI agent that ingested all our historical application data — off the books, off the radar. We built it kind of illegally, but we did it."</em> Addressing shadow IT requires creating legitimate fast lanes, not just stricter enforcement.</li>
+        <li><strong>Generic AI courses fail because they don't map to actual workflows — n=7.</strong> The most consistent critique of existing training programs: too basic, not connected to participants' actual work, and delivered in formats that don't allow hands-on practice. Demo-only sessions, checkbox-completion gating, and generic content all produce the same outcome: low retention, no behavior change. <em>"What they were teaching was basic but not relevant. It didn't help me understand how I was using AI in my real life."</em></li>
+      </ul>
+    </div>
+
+    <!-- UPSKILLING -->
+    <div class="insight-card">
+      <div class="insight-card-label">Upskilling teams and organizations</div>
+      <div class="insight-card-title">Existing programs, vendors, and internal approaches classmates have used to teach non-technical teams how to use AI</div>
+
+      <div class="upskilling-group">
+        <div class="upskilling-group-title">External programs &amp; vendors named</div>
+        <ul class="insight-bullets">
+          <li><strong>SectionAI:</strong> Mandatory async training gating enterprise ChatGPT license access. Described as checkbox-completion; few take the optional deeper courses. Low behavior change.</li>
+          <li><strong>Recalc ("Cloud Code for Business"):</strong> 2×90-min paid cohort sessions. Walkthrough + use cases format. Issues: pre-work uneven so cohort level was variable, format mostly one-way. Paid for out of pocket.</li>
+          <li><strong>SaxCap:</strong> High-touch AI vision consulting. Expensive. Focused on strategy and vision, not skill-building.</li>
+          <li><strong>Colectivo Intereseca:</strong> LatAm AI upskilling academy. Enrolled, didn't complete. <em>"Basic but not relevant."</em></li>
+          <li><strong>UW AI PM Course:</strong> 4-month structured program. Value was the reps forced by the structure, not the curriculum itself.</li>
+          <li><strong>Tal Raviv / Lenny's Podcast:</strong> Used for product, marketing, research, and support teams — not engineering.</li>
+          <li><strong>AlphaSense (n=2):</strong> Finance-specific AI tool with proprietary expert interview archive and RAG over internal docs. Highly valued by PE and hedge fund teams for research acceleration. Not a training program per se, but functions as a key AI upskilling tool for investors.</li>
+          <li><strong>Anthropic 101 (n=2):</strong> Used as a baseline training starting point. Characterized as minimal, followed by "go play." Functions as a license gate, not a capability program.</li>
+        </ul>
+      </div>
+
+      <div class="upskilling-group">
+        <div class="upskilling-group-title">Internal approaches — by frequency</div>
+        <ul class="insight-bullets">
+          <li><strong>AI champion / function sponsor model — n=10:</strong> Designate 1–5 power users per function who receive deeper training and disseminate to their team. Risk: champions burn out when it's added to a full existing workload without ring-fenced time.</li>
+          <li><strong>Hackathon / structured sprint (incl. demo days &amp; show-and-tell) — n=9:</strong> Time-boxed "pens down" sessions where teams build something together. Most effective when combined with hard calendar protection — protected time gets eroded otherwise.</li>
+          <li><strong>Pilot group → broader rollout — n=8:</strong> Start with a small cohort of motivated users to generate internal case studies and enablement materials before rolling out org-wide.</li>
+          <li><strong>Slack channel for peer sharing — n=8:</strong> Active channel for sharing wins, failures, and new tricks. Psychological safety (welcoming failures) is the key differentiator for channels that actually spread knowledge.</li>
+          <li><strong>Train-the-trainer / champion → department — n=6:</strong> Champion receives deep training externally, then runs internal sessions for their function.</li>
+          <li><strong>Mandatory AI projects / forcing mechanism — n=5:</strong> Weekly AI Huddles requiring a project to show, quarterly ship-to-production sprints, or other hard accountability mechanisms.</li>
+          <li><strong>Bi-weekly / regular AI cadence meeting — n=4:</strong> Prevents AI adoption from being a one-time event. Recurring cadence is the common thread in orgs with sustained progress.</li>
+          <li><strong>All-hands AI spotlights — n=3 | AI steering committee — n=2 | Personal project mandate — n=2 | YouTube / self-directed — n=2 | Passive compliance video library — n=2</strong></li>
+        </ul>
+      </div>
+
+      <div class="upskilling-group">
+        <div class="upskilling-group-title">What's working vs. failing</div>
+        <ul class="insight-bullets">
+          <li><strong>Working: hands-on, workflow-specific practice.</strong> Formats where participants build something connected to their actual work during the session — not watch a demo, not hear a lecture. In-person setup alongside the learner, in context, with real tools and real data. The closer to real work, the higher the retention.</li>
+          <li><strong>Working: champion + regular cadence.</strong> The most sophisticated internal upskilling structures in the dataset combine a designated full-time AI captain, bi-weekly AI virtuals with sharing, a formal attribution policy, and a CTO-built shared knowledge base. Multi-layered and recurring — not a one-time event.</li>
+          <li><strong>Working: peer demo creates social proof.</strong> Seeing a peer do something useful makes the behavior feel achievable. A corporate training video doesn't achieve the same effect.</li>
+          <li><strong>Failing: compliance-gated training = checkbox behavior.</strong> Training that functions as a prerequisite to unlock a license produces learners who do the minimum to get access, then use the tool however they were already inclined.</li>
+          <li><strong>Failing: generic content without workflow context.</strong> "Basic but not relevant" is the consistent verdict on generic AI courses. The format that fails most is a demo-of-what's-possible that the learner can't immediately replicate in their own data and workflow environment.</li>
+          <li><strong>Failing: access without integration = partial value.</strong> Providing tool access without solving the connector problem (data permissions, MCPs, approved integrations) produces chatbot-level usage and disengagement. The most preventable failure mode in the dataset.</li>
+        </ul>
+      </div>
+
+      <div class="awards-block">
+        <span class="awards-label">Most Innovative Awards go to...</span>
+        <ul class="awards-bullets">
+          <li><strong>L1/L2/L3 Contribution Labeling:</strong> One cleantech startup mandates that all work products declare the level of AI contribution. Creates accountability, honesty, and a shared vocabulary across the team — none of the external vendors offer anything equivalent.</li>
+          <li><strong>In-Person Portco Setup Days:</strong> One small PE firm sends its in-house AI champion to each portfolio company for a dedicated day — getting systems connected, building the first agent together, and leaving with a documented list of next automations. High-touch, high-retention, no curriculum required.</li>
+          <li><strong>Agent Productionization Pipeline:</strong> One tech company built a dedicated team that evaluates individual contributors' agents, productionizes the best ones, and distributes them org-wide via a menu. Scales the work of the most advanced builders without requiring everyone to be an expert.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MOST RELEVANT FOR YOUR CONTEXT -->
+<div class="report-section">
+  <span class="section-label">Most relevant for your context</span>
+  <p style="font-size:14px;color:var(--text-secondary);margin-bottom:20px;">Show insights for someone in:</p>
+  <div class="filter-row">
+    <div class="filter-group">
+      <span class="filter-label">Industry</span>
+      <select class="filter-select" id="personaSelect" onchange="updatePersona()">
+        <option value="">Select your industry</option>
+        <option value="tech">Tech</option>
+        <option value="finance">Financial Services</option>
+        <option value="energy">Energy &amp; Cleantech</option>
+        <option value="services">Professional Services</option>
+        <option value="healthcare">Healthcare</option>
+        <option value="goveduc">Government &amp; Education</option>
+        <option value="consumer">Consumer</option>
+        <option value="realestate">Real Estate</option>
+      </select>
+    </div>
+  </div>
+  <div class="persona-result" id="personaResult">
+    <p class="persona-empty">Select an industry above to see insights relevant to peers in similar roles.</p>
+  </div>
+</div>
+
+<!-- ABOUT LELAND -->
+<div class="report-section">
+  <span class="section-label">About Leland's AI Builder Program</span>
+  <div class="about-card">
+    <img class="about-card-bg" src="https://ai.joinleland.com/assets/images/hero-2.png" alt="">
+    <div class="about-card-overlay"></div>
+    <div class="about-card-inner">
+      <svg width="96" height="22" viewBox="0 0 99 23" fill="none" xmlns="http://www.w3.org/2000/svg" style="color:#A5E446;display:block;margin-bottom:24px;">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M20.5721 2.33411L6.8221 6.45911L2.23877 20.6674L16.4471 16.5424L20.5721 2.33411ZM11.4052 13.7922C12.6709 13.7922 13.6969 12.7662 13.6969 11.5006C13.6969 10.2349 12.6709 9.2089 11.4052 9.2089C10.1396 9.2089 9.11354 10.2349 9.11354 11.5006C9.11354 12.7662 10.1396 13.7922 11.4052 13.7922Z" fill="currentColor"/>
         <path d="M80.2848 12.707V19.1726H83.4802V12.0081C83.4802 9.11227 82.6064 6.86554 79.1365 6.86554C77.389 6.86554 76.1658 7.63941 75.5168 8.91256H75.4419L75.4668 7.09021H72.2715V19.1726H75.4668V13.1564C75.4668 11.1343 76.1409 9.48672 78.113 9.48672C79.9603 9.48672 80.2848 10.9097 80.2848 12.707Z" fill="currentColor"/>
         <path d="M66.415 17.7747L66.4649 19.1726H69.5355V12.2577C69.5355 10.2107 69.0861 9.11227 68.2124 8.2635C67.3137 7.41474 66.0905 6.86554 63.9436 6.86554C61.8467 6.86554 60.1491 7.58949 59.2255 8.13869L60.1991 10.1857C60.7233 9.78629 62.0464 9.18716 63.644 9.18716C65.3166 9.18716 66.3401 9.91111 66.3401 11.4589V11.7834L63.4443 11.9831C60.948 12.1578 58.4766 13.1314 58.4766 15.6527C58.4766 18.1741 60.3738 19.4472 62.7204 19.4472C64.5178 19.4472 65.9157 18.6484 66.415 17.7747ZM64.1932 13.8554L66.3651 13.7305V15.9523C65.9407 16.5514 65.017 17.2754 63.7689 17.2754C62.4458 17.2754 61.6719 16.5764 61.6719 15.5529C61.6719 14.5294 62.4957 13.9552 64.1932 13.8554Z" fill="currentColor"/>
@@ -411,265 +346,203 @@
         <path d="M56.332 3.55707V19.1711H53.1616V3.55707L56.332 3.55707Z" fill="currentColor"/>
         <path fill-rule="evenodd" clip-rule="evenodd" d="M98.5944 3.55707V19.1711H95.5738L95.5488 17.2739H95.4739C94.5003 18.8216 93.0025 19.4457 91.3299 19.4457C87.7851 19.4457 85.6133 16.6997 85.6133 13.105C85.6133 9.68494 87.885 6.86405 91.5546 6.86405C93.1773 6.86405 94.5503 7.46318 95.399 8.76129H95.449C95.424 8.21209 95.424 7.56303 95.424 6.71427V3.55707L98.5944 3.55707ZM88.8586 13.105C88.8586 15.2019 90.1567 16.8495 92.2286 16.8495C94.1508 16.8495 95.4989 15.3767 95.4989 13.105C95.4989 11.0829 94.1758 9.31049 92.1288 9.31049C90.0568 9.31049 88.8586 11.0829 88.8586 13.105Z" fill="currentColor"/>
       </svg>
-      <span class="report-logo-tag">AI Discovery</span>
-    </div>
-    <h1 class="report-title">AI Upskilling &amp; Enablement Insights</h1>
-    <p class="report-desc">A snapshot of how 50 GSB classmates (primarily MBA '21 and '22) are using and rolling out AI across their companies.</p>
-  </header>
-
-  <!-- SAMPLE BREAKDOWN -->
-  <div class="report-section">
-    <span class="section-label">Sample Breakdown</span>
-    <div class="charts-grid-3">
-
-      <div class="chart-card">
-        <div class="chart-card-title">Job Function</div>
-        <div class="chart-card-desc">Investors and strategy/ops roles dominate.</div>
-        <div id="bars-role"></div>
-      </div>
-
-      <div class="chart-card">
-        <div class="chart-card-title">Company Size</div>
-        <div class="chart-card-desc">Spans solo founders to 10K+ enterprises.</div>
-        <div id="bars-size"></div>
-      </div>
-
-      <div class="chart-card">
-        <div class="chart-card-title">Company Industry</div>
-        <div class="chart-card-desc">Tech and Financial Services lead.</div>
-        <div id="bars-ind"></div>
-      </div>
-
+      <p>Leland helps non-technical professionals and teams learn to build with AI through cohort-based programs. The pattern that works best — by far — is bringing teams, leadership groups, or executive cohorts through together.</p>
+      <p>When everyone learns to build at the same time, the curve compounds: AI champions no longer have to bear the burden of being the go-to educator, enabler, and troubleshooter for the org's AI experiments. Everyone is on the same level, using the same vocabulary, and capable of solving most snafus alone.</p>
+      <a href="https://ai.joinleland.com/leland-ai-builders-b2b-vica" class="about-link" target="_blank">Learn about the Teams program →</a>
     </div>
   </div>
-
-  <!-- AI ENABLEMENT -->
-  <div class="report-section">
-    <span class="section-label">AI Enablement</span>
-    <h2 class="section-title">Models being used</h2>
-
-    <div class="charts-grid">
-      <div class="chart-card">
-        <div class="chart-card-title">Personal AI Competency</div>
-        <div class="chart-card-desc">Half the cohort is still using AI as a chatbot. Only ~10% are actively building agents.</div>
-        <div id="bars-comp"></div>
-      </div>
-
-      <div class="chart-card">
-        <div class="chart-card-title">Org-Level AI Enablement</div>
-        <div class="chart-card-desc">Enterprise licenses are common — but only a third of orgs show culture-level AI adoption.</div>
-        <div id="bars-enab"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- WHAT WE'RE HEARING -->
-  <div class="report-section">
-    <span class="section-label">What we're hearing across calls</span>
-
-    <div class="insights-stack">
-
-      <div class="insight-card">
-        <div class="insight-card-label">General insights</div>
-        <div class="insight-card-title">Patterns on how to use AI most effectively for personal and professional efficiency, enablement, and competence</div>
-        <div class="bullet-placeholder"><div class="bullet-line" style="width:82%"></div></div>
-        <div class="bullet-placeholder"><div class="bullet-line" style="width:67%"></div></div>
-        <div class="bullet-placeholder"><div class="bullet-line" style="width:75%"></div></div>
-        <div class="bullet-placeholder"><div class="bullet-line" style="width:59%"></div></div>
-        <div class="bullet-placeholder"><div class="bullet-line" style="width:71%"></div></div>
-        <div class="bullet-placeholder"><div class="bullet-line" style="width:63%"></div></div>
-        <div class="pending-note"><span class="loading-dot"></span> Populating once all transcripts are processed</div>
-      </div>
-
-      <div class="insight-card">
-        <div class="insight-card-label">Gotchas, learnings, failures</div>
-        <div class="insight-card-title">Things people wish they'd known earlier, mistakes that derailed AI deployments, and late realizations classmates flagged</div>
-        <div class="bullet-placeholder"><div class="bullet-line" style="width:78%"></div></div>
-        <div class="bullet-placeholder"><div class="bullet-line" style="width:64%"></div></div>
-        <div class="bullet-placeholder"><div class="bullet-line" style="width:88%"></div></div>
-        <div class="bullet-placeholder"><div class="bullet-line" style="width:55%"></div></div>
-        <div class="bullet-placeholder"><div class="bullet-line" style="width:72%"></div></div>
-        <div class="bullet-placeholder"><div class="bullet-line" style="width:61%"></div></div>
-        <div class="pending-note"><span class="loading-dot"></span> Populating once all transcripts are processed</div>
-      </div>
-
-      <div class="insight-card">
-        <div class="insight-card-label">Upskilling teams and organizations</div>
-        <div class="insight-card-title">Existing partners, vendors, courses, and approaches classmates have used to teach non-technical teams how to use AI</div>
-        <div class="bullet-placeholder"><div class="bullet-line" style="width:70%"></div></div>
-        <div class="bullet-placeholder"><div class="bullet-line" style="width:85%"></div></div>
-        <div class="bullet-placeholder"><div class="bullet-line" style="width:60%"></div></div>
-        <div class="bullet-placeholder"><div class="bullet-line" style="width:76%"></div></div>
-        <div class="bullet-placeholder"><div class="bullet-line" style="width:58%"></div></div>
-        <div class="bullet-placeholder"><div class="bullet-line" style="width:68%"></div></div>
-        <div class="pending-note"><span class="loading-dot"></span> Populating once all transcripts are processed</div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- MOST RELEVANT FOR YOUR CONTEXT -->
-  <div class="report-section">
-    <span class="section-label">Most relevant for your context</span>
-    <p style="font-size:14px;color:var(--text-secondary);margin-bottom:20px;">Show insights for someone in:</p>
-
-    <div class="filter-row">
-      <div class="filter-group">
-        <span class="filter-label">Industry</span>
-        <select class="filter-select" id="industrySelect" onchange="updateFilter()">
-          <option value="">Select once data is loaded</option>
-          <option value="tech">Technology</option>
-          <option value="finance">Finance &amp; Investing</option>
-          <option value="healthcare">Healthcare</option>
-          <option value="consumer">Consumer &amp; Retail</option>
-          <option value="media">Media &amp; Content</option>
-          <option value="consulting">Consulting &amp; Services</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-      <div class="filter-group">
-        <span class="filter-label">Function</span>
-        <select class="filter-select" id="functionSelect" onchange="updateFilter()">
-          <option value="">Select once data is loaded</option>
-          <option value="product">Product</option>
-          <option value="engineering">Engineering</option>
-          <option value="marketing">Marketing &amp; Growth</option>
-          <option value="ops">Operations</option>
-          <option value="sales">Sales &amp; BD</option>
-          <option value="finance_fn">Finance &amp; Strategy</option>
-          <option value="exec">Executive / Founder</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="filter-result" id="filterResult">
-      Pick an industry and function above to see insights relevant to peers in similar roles. Includes portfolio-company value-creation patterns for investors. — populated once all transcripts are processed.
-    </div>
-  </div>
-
-  <!-- ABOUT LELAND AI BUILDER -->
-  <div class="report-section">
-    <span class="section-label">About Leland's AI Builder Program</span>
-    <div class="about-card">
-      <img class="about-card-bg" src="https://ai.joinleland.com/assets/images/hero-2.png" alt="">
-      <div class="about-card-overlay"></div>
-      <div class="about-card-inner">
-        <svg width="96" height="22" viewBox="0 0 99 23" fill="none" xmlns="http://www.w3.org/2000/svg" style="color:#A5E446;display:block;margin-bottom:24px;">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M20.5721 2.33411L6.8221 6.45911L2.23877 20.6674L16.4471 16.5424L20.5721 2.33411ZM11.4052 13.7922C12.6709 13.7922 13.6969 12.7662 13.6969 11.5006C13.6969 10.2349 12.6709 9.2089 11.4052 9.2089C10.1396 9.2089 9.11354 10.2349 9.11354 11.5006C9.11354 12.7662 10.1396 13.7922 11.4052 13.7922Z" fill="currentColor"/>
-          <path d="M80.2848 12.707V19.1726H83.4802V12.0081C83.4802 9.11227 82.6064 6.86554 79.1365 6.86554C77.389 6.86554 76.1658 7.63941 75.5168 8.91256H75.4419L75.4668 7.09021H72.2715V19.1726H75.4668V13.1564C75.4668 11.1343 76.1409 9.48672 78.113 9.48672C79.9603 9.48672 80.2848 10.9097 80.2848 12.707Z" fill="currentColor"/>
-          <path d="M66.415 17.7747L66.4649 19.1726H69.5355V12.2577C69.5355 10.2107 69.0861 9.11227 68.2124 8.2635C67.3137 7.41474 66.0905 6.86554 63.9436 6.86554C61.8467 6.86554 60.1491 7.58949 59.2255 8.13869L60.1991 10.1857C60.7233 9.78629 62.0464 9.18716 63.644 9.18716C65.3166 9.18716 66.3401 9.91111 66.3401 11.4589V11.7834L63.4443 11.9831C60.948 12.1578 58.4766 13.1314 58.4766 15.6527C58.4766 18.1741 60.3738 19.4472 62.7204 19.4472C64.5178 19.4472 65.9157 18.6484 66.415 17.7747ZM64.1932 13.8554L66.3651 13.7305V15.9523C65.9407 16.5514 65.017 17.2754 63.7689 17.2754C62.4458 17.2754 61.6719 16.5764 61.6719 15.5529C61.6719 14.5294 62.4957 13.9552 64.1932 13.8554Z" fill="currentColor"/>
-          <path d="M41.9788 14.1549H50.8659C50.8659 14.1549 50.9158 13.1564 50.9158 12.5323C50.9158 9.31198 48.6691 6.86554 44.9495 6.86554C41.5045 6.86554 38.6836 9.46176 38.6836 13.3311C38.6836 17.2255 41.3797 19.4472 45.0244 19.4472C47.9701 19.4472 49.7924 18.199 50.4664 17.5001L49.2183 15.7776C48.6441 16.2768 47.1962 17.0008 45.5736 17.0008C43.7512 17.0008 42.2784 16.0771 41.9788 14.1549ZM44.9245 9.23709C47.1712 9.23709 47.6705 10.7599 47.7204 12.0829H41.9289C42.0287 10.5602 43.0273 9.23709 44.9245 9.23709Z" fill="currentColor"/>
-          <path d="M31.7384 3.55707V16.4751H37.7546V19.1711H28.5181V3.55707L31.7384 3.55707Z" fill="currentColor"/>
-          <path d="M56.332 3.55707V19.1711H53.1616V3.55707L56.332 3.55707Z" fill="currentColor"/>
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M98.5944 3.55707V19.1711H95.5738L95.5488 17.2739H95.4739C94.5003 18.8216 93.0025 19.4457 91.3299 19.4457C87.7851 19.4457 85.6133 16.6997 85.6133 13.105C85.6133 9.68494 87.885 6.86405 91.5546 6.86405C93.1773 6.86405 94.5503 7.46318 95.399 8.76129H95.449C95.424 8.21209 95.424 7.56303 95.424 6.71427V3.55707L98.5944 3.55707ZM88.8586 13.105C88.8586 15.2019 90.1567 16.8495 92.2286 16.8495C94.1508 16.8495 95.4989 15.3767 95.4989 13.105C95.4989 11.0829 94.1758 9.31049 92.1288 9.31049C90.0568 9.31049 88.8586 11.0829 88.8586 13.105Z" fill="currentColor"/>
-        </svg>
-        <p>Leland helps non-technical professionals and teams learn to build with AI through cohort-based programs. The pattern that works best — by far — is bringing teams, leadership groups, or executive cohorts through together.</p>
-        <p>When everyone learns to build at the same time, the curve compounds: AI champions no longer have to bear the burden of being the go-to educator, enabler, and troubleshooter for the org's AI experiments. Everyone is on the same level, using the same vocabulary, and capable of solving most snafus alone.</p>
-        <a href="https://ai.joinleland.com/leland-ai-builders-b2b-vica" class="about-link" target="_blank">Learn about the Teams program →</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="report-footer">
-    <p>Data collected from 50 one-on-one discovery calls, March–April 2026. Each bar shows the count and percentage of participants in that category. Compiled by Vica Germanova at Leland. Questions? Email <a href="mailto:vica@joinleland.com" style="color:var(--accent);text-decoration:none;">vica@joinleland.com</a>. Feel free to forward this dashboard along to others.</p>
-  </footer>
-
 </div>
 
+<!-- FOOTER -->
+<footer class="report-footer">
+  <p>Data collected from 50 one-on-one discovery calls, March–April 2026. Each bar shows the count and percentage of participants in that category. Compiled by Vica Germanova at Leland. Questions? Email <a href="mailto:vica@joinleland.com" style="color:var(--accent);text-decoration:none;">vica@joinleland.com</a>. Feel free to forward this dashboard along to others.</p>
+</footer>
+
+</div>
 <script>
 const CALLS = [
-  {id:1,  role:'Founder',         size:'10-49',      ind:'Tech',                    comp:'Building and using agents',              enab:'More advanced tools in use'},
-  {id:2,  role:'Operations',      size:'10-49',      ind:'Tech',                    comp:'Automating some workflows',               enab:'Lots of AI-native behavior across org'},
-  {id:3,  role:'Strategy',        size:'10,000+',    ind:'Food & Beverage / QSR',   comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'No/few tools approved'},
-  {id:4,  role:'Strategy',        size:'10,000+',    ind:'Financial Services',      comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'Enterprise Claude/equivalent licensed'},
-  {id:5,  role:'Founder',         size:'10-49',      ind:'Professional Services',   comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'Enterprise Claude/equivalent licensed'},
-  {id:6,  role:'Operations',      size:'250-999',    ind:'Healthcare',              comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'Going through approval now'},
-  {id:7,  role:'Strategy',        size:'1,000-9,999',ind:'Media & Entertainment',   comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'Enterprise Claude/equivalent licensed'},
-  {id:8,  role:'Operations',      size:'50-249',     ind:'Education',               comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'No/few tools approved'},
-  {id:9,  role:'Founder',         size:'1-9',        ind:'Real Estate',             comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'No/few tools approved'},
-  {id:10, role:'Investor',        size:'10-49',      ind:'Financial Services',      comp:'Building and using agents',              enab:'More advanced tools in use'},
-  {id:11, role:'Strategy',        size:'1,000-9,999',ind:'Healthcare',              comp:'Automating some workflows',               enab:'Enterprise Claude/equivalent licensed'},
-  {id:12, role:'Investor',        size:'10-49',      ind:'Financial Services',      comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'Enterprise Claude/equivalent licensed'},
-  {id:13, role:'Strategy',        size:'10,000+',    ind:'Tech',                    comp:'Automating some workflows',               enab:'Lots of AI-native behavior across org'},
-  {id:14, role:'Strategy',        size:'10-49',      ind:'Tech',                    comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'Enterprise Claude/equivalent licensed'},
-  {id:15, role:'Founder',         size:'1-9',        ind:'Professional Services',   comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'No/few tools approved'},
-  {id:16, role:'Founder',         size:'10-49',      ind:'Cleantech / Deep Tech',   comp:'Automating some workflows',               enab:'Lots of AI-native behavior across org'},
-  {id:17, role:'Product',         size:'1,000-9,999',ind:'Tech',                    comp:'Automating some workflows',               enab:'Lots of AI-native behavior across org'},
-  {id:18, role:'Go-to-Market',    size:'10-49',      ind:'Cleantech / Deep Tech',   comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'No/few tools approved'},
-  {id:19, role:'Founder',         size:'1-9',        ind:'Professional Services',   comp:'Building and using agents',              enab:'More advanced tools in use'},
-  {id:20, role:'Strategy',        size:'1,000-9,999',ind:'Real Estate',             comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'Going through approval now'},
-  {id:21, role:'Strategy',        size:'1,000-9,999',ind:'Education',               comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'No/few tools approved'},
-  {id:22, role:'Go-to-Market',    size:'10-49',      ind:'Tech',                    comp:'Automating some workflows',               enab:'Enterprise Claude/equivalent licensed'},
-  {id:23, role:'Product',         size:'1,000-9,999',ind:'Tech',                    comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'Going through approval now'},
-  {id:24, role:'Go-to-Market',    size:'10,000+',    ind:'Tech',                    comp:'Automating some workflows',               enab:'Lots of AI-native behavior across org'},
-  {id:25, role:'Strategy',        size:'1,000-9,999',ind:'Healthcare',              comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'Enterprise Claude/equivalent licensed'},
-  {id:26, role:'Investor',        size:'10-49',      ind:'Financial Services',      comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'No/few tools approved'},
-  {id:27, role:'Founder',         size:'10-49',      ind:'Cleantech / Deep Tech',   comp:'Automating some workflows',               enab:'No/few tools approved'},
-  {id:28, role:'Investor',        size:'50-249',     ind:'Cleantech / Deep Tech',   comp:'Automating some workflows',               enab:'No/few tools approved'},
-  {id:29, role:'Founder',         size:'1-9',        ind:'Tech',                    comp:'Building and using agents',              enab:'Lots of AI-native behavior across org'},
-  {id:30, role:'Operations',      size:'10,000+',    ind:'Energy / Utilities',      comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'Enterprise Claude/equivalent licensed'},
-  {id:31, role:'Strategy',        size:'50-249',     ind:'Professional Services',   comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'More advanced tools in use'},
-  {id:32, role:'Go-to-Market',    size:'50-249',     ind:'Tech',                    comp:'Automating some workflows',               enab:'More advanced tools in use'},
-  {id:33, role:'Investor',        size:'10-49',      ind:'Financial Services',      comp:'Automating some workflows',               enab:'More advanced tools in use'},
-  {id:34, role:'Investor',        size:'50-249',     ind:'Financial Services',      comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'Enterprise Claude/equivalent licensed'},
-  {id:35, role:'Investor',        size:'1-9',        ind:'Financial Services',      comp:'Automating some workflows',               enab:'Enterprise Claude/equivalent licensed'},
-  {id:36, role:'Go-to-Market',    size:'250-999',    ind:'Tech',                    comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'Enterprise Claude/equivalent licensed'},
-  {id:37, role:'Investor',        size:'250-999',    ind:'Financial Services',      comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'Enterprise Claude/equivalent licensed'},
-  {id:38, role:'Strategy',        size:'250-999',    ind:'Tech',                    comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'More advanced tools in use'},
-  {id:39, role:'Product',         size:'10,000+',    ind:'Tech',                    comp:'Automating some workflows',               enab:'More advanced tools in use'},
-  {id:40, role:'Investor',        size:'10-49',      ind:'Financial Services',      comp:'Automating some workflows',               enab:'More advanced tools in use'},
-  {id:41, role:'Investor',        size:'250-999',    ind:'Financial Services',      comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'Enterprise Claude/equivalent licensed'},
-  {id:42, role:'Investor',        size:'1-9',        ind:'Financial Services',      comp:'Automating some workflows',               enab:'More advanced tools in use'},
-  {id:43, role:'Investor',        size:'10-49',      ind:'Financial Services',      comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'Enterprise Claude/equivalent licensed'},
-  {id:44, role:'People / L&D',   size:'10,000+',    ind:'Food & Beverage / QSR',   comp:'Automating some workflows',               enab:'Lots of AI-native behavior across org'},
-  {id:45, role:'Product',         size:'250-999',    ind:'Tech',                    comp:'Building and using agents',              enab:'Lots of AI-native behavior across org'},
-  {id:46, role:'Data / Analytics',size:'10,000+',   ind:'Tech',                    comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'Lots of AI-native behavior across org'},
-  {id:47, role:'Other',           size:'1,000-9,999',ind:'Tech',                    comp:'Automating some workflows',               enab:'Lots of AI-native behavior across org'},
-  {id:48, role:'Go-to-Market',    size:'50-249',     ind:'Government & Defense',    comp:'Using ChatGPT/Claude/etc as a chatbot',   enab:'Enterprise Claude/equivalent licensed'},
-  {id:49, role:'Operations',      size:'50-249',     ind:'Cleantech / Deep Tech',   comp:'Automating some workflows',               enab:'Enterprise Claude/equivalent licensed'},
-  {id:50, role:'Investor',        size:'1,000-9,999',ind:'Financial Services',      comp:'Automating some workflows',               enab:'Lots of AI-native behavior across org'},
+  {id:1,  role:'Founder',         size:'10-49',      ind:'Tech',                  comp:'Building and using agents',            enab:'More advanced tools in use'},
+  {id:2,  role:'Operations',      size:'10-49',      ind:'Tech',                  comp:'Automating some workflows',             enab:'Lots of AI-native behavior across org'},
+  {id:3,  role:'Strategy',        size:'10,000+',    ind:'Consumer',              comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'No/few tools approved'},
+  {id:4,  role:'Strategy',        size:'10,000+',    ind:'Financial Services',    comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'Enterprise Claude/equivalent licensed'},
+  {id:5,  role:'Founder',         size:'10-49',      ind:'Professional Services', comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'Enterprise Claude/equivalent licensed'},
+  {id:6,  role:'Operations',      size:'250-999',    ind:'Healthcare',            comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'Going through approval now'},
+  {id:7,  role:'Strategy',        size:'1,000-9,999',ind:'Tech',                  comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'Enterprise Claude/equivalent licensed'},
+  {id:8,  role:'Operations',      size:'50-249',     ind:'Government & Education', comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'No/few tools approved'},
+  {id:9,  role:'Founder',         size:'1-9',        ind:'Real Estate',           comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'No/few tools approved'},
+  {id:10, role:'Investor',        size:'10-49',      ind:'Financial Services',    comp:'Building and using agents',            enab:'More advanced tools in use'},
+  {id:11, role:'Strategy',        size:'1,000-9,999',ind:'Healthcare',            comp:'Automating some workflows',             enab:'Enterprise Claude/equivalent licensed'},
+  {id:12, role:'Investor',        size:'10-49',      ind:'Financial Services',    comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'Enterprise Claude/equivalent licensed'},
+  {id:13, role:'Strategy',        size:'10,000+',    ind:'Tech',                  comp:'Automating some workflows',             enab:'Lots of AI-native behavior across org'},
+  {id:14, role:'Strategy',        size:'10-49',      ind:'Tech',                  comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'Enterprise Claude/equivalent licensed'},
+  {id:15, role:'Founder',         size:'1-9',        ind:'Professional Services', comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'No/few tools approved'},
+  {id:16, role:'Founder',         size:'10-49',      ind:'Energy & Cleantech',    comp:'Automating some workflows',             enab:'Lots of AI-native behavior across org'},
+  {id:17, role:'Product',         size:'1,000-9,999',ind:'Tech',                  comp:'Automating some workflows',             enab:'Lots of AI-native behavior across org'},
+  {id:18, role:'Go-to-Market',    size:'10-49',      ind:'Energy & Cleantech',    comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'No/few tools approved'},
+  {id:19, role:'Founder',         size:'1-9',        ind:'Professional Services', comp:'Building and using agents',            enab:'More advanced tools in use'},
+  {id:20, role:'Strategy',        size:'1,000-9,999',ind:'Real Estate',           comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'Going through approval now'},
+  {id:21, role:'Strategy',        size:'1,000-9,999',ind:'Government & Education', comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'No/few tools approved'},
+  {id:22, role:'Go-to-Market',    size:'10-49',      ind:'Tech',                  comp:'Automating some workflows',             enab:'Enterprise Claude/equivalent licensed'},
+  {id:23, role:'Product',         size:'1,000-9,999',ind:'Tech',                  comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'Going through approval now'},
+  {id:24, role:'Go-to-Market',    size:'10,000+',    ind:'Tech',                  comp:'Automating some workflows',             enab:'Lots of AI-native behavior across org'},
+  {id:25, role:'Strategy',        size:'1,000-9,999',ind:'Healthcare',            comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'Enterprise Claude/equivalent licensed'},
+  {id:26, role:'Investor',        size:'10-49',      ind:'Financial Services',    comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'No/few tools approved'},
+  {id:27, role:'Founder',         size:'10-49',      ind:'Energy & Cleantech',    comp:'Automating some workflows',             enab:'No/few tools approved'},
+  {id:28, role:'Investor',        size:'50-249',     ind:'Energy & Cleantech',    comp:'Automating some workflows',             enab:'No/few tools approved'},
+  {id:29, role:'Founder',         size:'1-9',        ind:'Tech',                  comp:'Building and using agents',            enab:'Lots of AI-native behavior across org'},
+  {id:30, role:'Operations',      size:'10,000+',    ind:'Energy & Cleantech',    comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'Enterprise Claude/equivalent licensed'},
+  {id:31, role:'Strategy',        size:'50-249',     ind:'Professional Services', comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'More advanced tools in use'},
+  {id:32, role:'Go-to-Market',    size:'50-249',     ind:'Tech',                  comp:'Automating some workflows',             enab:'More advanced tools in use'},
+  {id:33, role:'Investor',        size:'10-49',      ind:'Financial Services',    comp:'Automating some workflows',             enab:'More advanced tools in use'},
+  {id:34, role:'Investor',        size:'50-249',     ind:'Financial Services',    comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'Enterprise Claude/equivalent licensed'},
+  {id:35, role:'Investor',        size:'1-9',        ind:'Financial Services',    comp:'Automating some workflows',             enab:'Enterprise Claude/equivalent licensed'},
+  {id:36, role:'Go-to-Market',    size:'250-999',    ind:'Tech',                  comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'Enterprise Claude/equivalent licensed'},
+  {id:37, role:'Investor',        size:'250-999',    ind:'Financial Services',    comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'Enterprise Claude/equivalent licensed'},
+  {id:38, role:'Strategy',        size:'250-999',    ind:'Tech',                  comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'More advanced tools in use'},
+  {id:39, role:'Product',         size:'10,000+',    ind:'Tech',                  comp:'Automating some workflows',             enab:'More advanced tools in use'},
+  {id:40, role:'Investor',        size:'10-49',      ind:'Financial Services',    comp:'Automating some workflows',             enab:'More advanced tools in use'},
+  {id:41, role:'Investor',        size:'250-999',    ind:'Financial Services',    comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'Enterprise Claude/equivalent licensed'},
+  {id:42, role:'Investor',        size:'1-9',        ind:'Financial Services',    comp:'Automating some workflows',             enab:'More advanced tools in use'},
+  {id:43, role:'Investor',        size:'10-49',      ind:'Financial Services',    comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'Enterprise Claude/equivalent licensed'},
+  {id:44, role:'People / L&D',   size:'10,000+',    ind:'Consumer',              comp:'Automating some workflows',             enab:'Lots of AI-native behavior across org'},
+  {id:45, role:'Product',         size:'250-999',    ind:'Tech',                  comp:'Building and using agents',            enab:'Lots of AI-native behavior across org'},
+  {id:46, role:'Data / Analytics',size:'10,000+',   ind:'Tech',                  comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'Lots of AI-native behavior across org'},
+  {id:47, role:'Other',           size:'1,000-9,999',ind:'Tech',                  comp:'Automating some workflows',             enab:'Lots of AI-native behavior across org'},
+  {id:48, role:'Go-to-Market',    size:'50-249',     ind:'Government & Education', comp:'Using ChatGPT/Claude/etc as a chatbot', enab:'Enterprise Claude/equivalent licensed'},
+  {id:49, role:'Operations',      size:'50-249',     ind:'Energy & Cleantech',    comp:'Automating some workflows',             enab:'Enterprise Claude/equivalent licensed'},
+  {id:50, role:'Investor',        size:'1,000-9,999',ind:'Financial Services',    comp:'Automating some workflows',             enab:'Lots of AI-native behavior across org'},
 ];
 
 const ROLE_ORDER = ['Founder','Investor','Strategy','Operations','Product','Go-to-Market','Data / Analytics','People / L&D','Other'];
 const SIZE_ORDER = ['1-9','10-49','50-249','250-999','1,000-9,999','10,000+'];
-const IND_ORDER  = ['Financial Services','Healthcare','Tech','Professional Services','Education','Food & Beverage / QSR','Government & Defense','Nonprofit','Media & Entertainment','Real Estate','Cleantech / Deep Tech','Energy / Utilities'];
+const IND_ORDER  = ['Tech','Financial Services','Energy & Cleantech','Professional Services','Healthcare','Government & Education','Consumer','Real Estate'];
 const COMP_ORDER = ['Not using at all','Using ChatGPT/Claude/etc as a chatbot','Automating some workflows','Building and using agents'];
 const ENAB_ORDER = ['No/few tools approved','Going through approval now','Enterprise Claude/equivalent licensed','More advanced tools in use','Lots of AI-native behavior across org'];
 
-function esc(s) {
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
+function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
 function renderBars(containerId, field, categories, sortByCount) {
   const total = CALLS.length;
   const counts = {};
   for (const cat of categories) counts[cat] = 0;
-  for (const c of CALLS) {
-    if (counts[c[field]] !== undefined) counts[c[field]]++;
-  }
-
+  for (const c of CALLS) { if (counts[c[field]] !== undefined) counts[c[field]]++; }
   let displayCats = categories.slice();
-  if (sortByCount) {
-    displayCats.sort((a, b) => counts[b] - counts[a]);
-  }
-
+  if (sortByCount) displayCats.sort((a, b) => counts[b] - counts[a]);
   const populated = displayCats.filter(c => counts[c] > 0);
   const maxCount = populated.length ? Math.max(...populated.map(c => counts[c])) : 0;
-
   let html = '';
   for (const cat of displayCats) {
     const n = counts[cat];
     if (n === 0) continue;
     const pct = Math.round((n / total) * 100);
     const isMajor = n === maxCount;
-    html += `<div class="bar-row">`;
-    html += `<div class="bar-row-top"><span class="bar-label">${esc(cat)}</span><span class="bar-count">${n} (${pct}%)</span></div>`;
-    html += `<div class="bar-track"><div class="bar-fill${isMajor ? '' : ' dim'}" style="width:0%" data-w="${pct}%"></div></div>`;
-    html += `</div>`;
+    html += `<div class="bar-row"><div class="bar-row-top"><span class="bar-label">${esc(cat)}</span><span class="bar-count">${n} (${pct}%)</span></div><div class="bar-track"><div class="bar-fill${isMajor ? '' : ' dim'}" style="width:0%" data-w="${pct}%"></div></div></div>`;
   }
-
   document.getElementById(containerId).innerHTML = html;
+}
+
+const PERSONA_INSIGHTS = {
+  tech: {
+    label: 'Tech',
+    bullets: [
+      'The most internally split of any sector: engineering and product teams are at agentic level, while GTM, CS, legal, and support functions lag 6–18 months behind — within the same company. Enterprise licenses exist; structured guidance for non-technical teams does not.',
+      'Blockers are rarely skepticism. They\'re time, tool access, and training gaps — especially for non-technical functions who have enterprise license access but no structured path to actually use it.',
+      'Most effective upskilling format in tech: forcing mechanisms (mandatory AI projects, AI fluency in performance reviews) combined with peer-sharing channels where wins and failures are both welcome.',
+      'Tool churn anxiety is the defining tension: transitions between tools (e.g. Cursor → Claude Code) create continuous re-learning cycles even for early adopters. Learning principles transfers; specific tool fluency doesn\'t.',
+      'AI-native companies often resist external upskilling: <em>"We wouldn\'t outsource AI training — it conflicts with our identity."</em> The window for external programs is non-R&D functions who have access but no guidance.',
+      'Senior leaders — including those with AI in their job title — report using AI more at home than at work. Time, not skepticism, is the blocker. Training for this group must be extremely high-leverage per hour.'
+    ]
+  },
+  finance: {
+    label: 'Financial Services',
+    bullets: [
+      'Most compliance-constrained sector: SEC archiving, MNPI, prompt injection risk, and fiduciary obligations shape every AI decision at PE firms and hedge funds. These are structural features, not temporary friction.',
+      'Universal pattern: enterprise license approved (often after 6+ months), but connectors and agentic tools remain blocked pending further compliance review. Many teams have a license that\'s effectively useless because nothing is integrated.',
+      'Highest-ROI entry point: deal sourcing and screening automation. One firm went from 10 to 100 companies screened per hour. Second highest: legal document review and Excel diligence automation at the associate level.',
+      'The PE portco distribution model is a recurring structural opportunity — firms wanting to push AI capability through their portfolio companies. Preferred format: opt-in, short, immediately practical. Not mandated.',
+      'Small growth-stage PE firms are moving fastest. Large hedge funds and firms with SEC archiving requirements are the slowest. Shadow AI tools (AI note-taking apps used without IT approval) are pervasive at the latter.',
+      'Partners and senior investors consistently want to adopt more but don\'t find the time. <em>"I don\'t have time to do this shit."</em> Training for this group must be task-specific, immediately applicable, and low-setup.'
+    ]
+  },
+  energy: {
+    label: 'Energy & Cleantech',
+    bullets: [
+      'Two distinct profiles: cleantech startups (small teams, AI as a major force multiplier, minimal compliance friction) vs. large utilities (Microsoft-locked, conservative, slow-moving).',
+      'Most advanced cleantech companies are not blocked by compliance — they\'re blocked by converting non-convert colleagues. The gap between the 5–6 passionate internal converts and the rest of the company is the central challenge. <em>"I\'ve gotten six converts in my entire company"</em> — said by a COO with full organizational access.',
+      'Cleantech-specific use cases not seen elsewhere: AI for engineering simulation (hundreds of iterations per week) and scientific hypothesis testing — catalyst development, materials research, probiotic monomer iteration.',
+      'Large utility pattern: Copilot as default, real tools feel blocked or awkward, prior AI training program so forgettable the participant couldn\'t recall its name or content.',
+      'Longer project time horizons (permitting, PPAs, construction) create lower urgency perception around AI adoption vs. tech. The "why now" framing matters more in this sector.',
+      'The most sophisticated internal governance structure in the entire dataset came from a cleantech startup: a dedicated full-time AI captain, bi-weekly AI virtuals, formal L1/L2/L3 attribution policy for all work products, and a CTO-built shared knowledge base.'
+    ]
+  },
+  services: {
+    label: 'Professional Services',
+    bullets: [
+      'Wide maturity range: some leaders paying for multiple AI subscriptions out of pocket to stay current; others where AI use would be "jumping way too far" for most of the workforce.',
+      'Dominant blockers vary by firm type: workforce digital literacy (relationship-driven teams not yet at the digital baseline) or compliance environment (defense-adjacent firms in GovCloud/GCC High where frontier models are categorically unavailable).',
+      'Key sector insight from this group: 80% of enterprise AI need is productivity-boosting — low data burden, high ROI, manageable complexity. 20% is sophisticated custom model building. Cohort-based programs address the 80%.',
+      'Common frustration articulated clearly: surrounded by tech-world peers doing 10x efficiency gains on weekends — unable to replicate that inside the organization on Monday. The gap is felt acutely and creates urgency.'
+    ]
+  },
+  healthcare: {
+    label: 'Healthcare',
+    bullets: [
+      'HIPAA and BAA requirements are hard technical gates, not just bureaucratic friction — they determine which tools can even be evaluated, regardless of capability or preference.',
+      'Common outcome: teams choose Gemini Enterprise for BAA coverage and Google Workspace integration, even when Claude is preferred personally. The BAA question drives the tool decision.',
+      'Some AI chat interfaces are unavailable for non-engineering use (not HIPAA-compliant); only terminal-based coding tools are permitted — severely limiting what non-technical staff can access.',
+      'Internal AI training tends to lag at "circa 2023 basics." Appetite to go further is there across all three healthcare calls in the dataset; the compliance environment is the ceiling.',
+      'Best entry points: internal ops AI (billing automation, financial operations, research acceleration) where compliance is navigable vs. clinical AI where stakes and constraints are highest.',
+      'Financial operations — including processes currently outsourced to offshore workers — is the most commonly identified high-value automation target in this sector.'
+    ]
+  },
+  goveduc: {
+    label: 'Government & Education',
+    bullets: [
+      'AI maturity is low across the board: individual expensed subscriptions, no org-wide AI strategy, external courses enrolled in but not completed.',
+      'Defense tech: GovCloud compliance and classified information guardrails create hard limits even for well-funded VC-backed startups. Frontier AI tools are often categorically unavailable regardless of desire.',
+      'Education sector: a consistent two-speed dynamic — product-side AI (AI-native learning platforms built for students and teachers) is often advanced, while internal operations teams remain at chatbot level within the same org.',
+      'LatAm context: AI adoption is meaningfully slower outside the US, even within forward-thinking organizations. Generic US-market training content doesn\'t translate to different regulatory, linguistic, or maturity contexts.',
+      'Upskilling need is urgent but consistently unfunded — L&D stipends are informal, individual, and nowhere near the cost of structured programs.',
+      'Motivational framing differs from tech: AI as a force multiplier for under-resourced teams, not competitive advantage or headcount replacement. The "why" matters for buy-in.'
+    ]
+  },
+  consumer: {
+    label: 'Consumer',
+    bullets: [
+      'Pattern: AI is embedded in operational tech stacks (route optimization algorithms, AI-powered drive-through ordering) — but internal workforce upskilling lags the product investment significantly.',
+      'Large franchise operators: at individual subscription pooling level — one person with a top-tier account, others routing requests through them informally. No enterprise strategy, no training program.',
+      'Large CPG companies: enterprise Copilot licensed but underused because it\'s clunky; employees defaulting to personal ChatGPT accounts. Only ~10% are building anything agentic despite enterprise access.',
+      'Most sophisticated L&D framing in the dataset came from this sector: trying to drive "work redesign" rather than tool adoption, with explicit concern that surface-level AI adoption atrophies critical thinking skills over time.',
+      'Key blocker: not compliance (for internal use), but the gap between what AI demos show and what employees can actually do within an approved enterprise stack that is Copilot-first, not Claude-first.'
+    ]
+  },
+  realestate: {
+    label: 'Real Estate',
+    bullets: [
+      'Industry self-description: <em>"a full dinosaur — barely using data for anything, let alone AI."</em> Real estate is a structural late adopter, from asset management to the software that serves it.',
+      'Early individual use cases: vibe-coded websites (instead of hiring a developer), AI as a feedback partner for investor materials and pitch decks — high value for solo founders operating without staff.',
+      'Enterprise real estate SaaS: running monitored AI pilots, but MNPI legal risk blocks the highest-value workflows (DCFs, board slides) — the most valuable automation targets are exactly what compliance prohibits.',
+      'Both the asset class and the software serving it have historically resisted new software spend. MNPI adds another layer of structural conservatism at public companies.',
+      'Forward-looking signal: AI labs are actively building real estate domain expertise from the outside, training models on underwriting and property management. The industry is likely to be disrupted before it self-transforms.'
+    ]
+  }
+};
+
+function updatePersona() {
+  const sel = document.getElementById('personaSelect');
+  const result = document.getElementById('personaResult');
+  const key = sel.value;
+  if (!key || !PERSONA_INSIGHTS[key]) {
+    result.innerHTML = '<p class="persona-empty">Select an industry above to see insights relevant to peers in similar roles.</p>';
+    return;
+  }
+  const persona = PERSONA_INSIGHTS[key];
+  let html = `<span class="persona-label">${esc(persona.label)}</span><ul class="persona-bullets">`;
+  for (const b of persona.bullets) {
+    html += `<li>${b}</li>`;
+  }
+  html += '</ul>';
+  result.innerHTML = html;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -678,24 +551,12 @@ document.addEventListener('DOMContentLoaded', () => {
   renderBars('bars-ind',  'ind',  IND_ORDER,  true);
   renderBars('bars-comp', 'comp', COMP_ORDER, false);
   renderBars('bars-enab', 'enab', ENAB_ORDER, false);
-
   setTimeout(() => {
     document.querySelectorAll('.bar-fill[data-w]').forEach(bar => {
       bar.style.width = bar.dataset.w;
     });
   }, 300);
 });
-
-function updateFilter() {
-  const industry = document.getElementById('industrySelect');
-  const fn = document.getElementById('functionSelect');
-  const result = document.getElementById('filterResult');
-  if (industry.value && fn.value) {
-    const iLabel = industry.options[industry.selectedIndex].text;
-    const fLabel = fn.options[fn.selectedIndex].text;
-    result.innerHTML = `<span style="font-family:var(--font-meta);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);">${iLabel} / ${fLabel}</span><br><span style="color:var(--text-tertiary);font-size:13px;">Insights for this combination will populate here once transcript analysis is complete.</span>`;
-  }
-}
 </script>
 </body>
 </html>
