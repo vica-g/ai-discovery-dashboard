@@ -94,6 +94,14 @@
   .awards-bullets li { position: relative; padding-left: 20px; font-size: 14px; color: rgba(165,228,70,0.8); line-height: 1.55; }
   .awards-bullets li::before { content: '★'; color: var(--accent); position: absolute; left: 0; top: 0; }
 
+  /* TESTIMONIALS */
+  .testimonials-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+  .testimonial-card { border: 1px solid rgba(165,228,70,0.2); border-radius: 8px; padding: 24px; position: relative; }
+  .testimonial-quote { font-size: 14px; color: var(--text-secondary); line-height: 1.7; font-style: italic; margin-bottom: 16px; }
+  .testimonial-quote::before { content: '\201C'; color: var(--accent); font-size: 2rem; line-height: 0; vertical-align: -0.5rem; margin-right: 4px; font-style: normal; }
+  .testimonial-attr { font-family: var(--font-meta); font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); }
+  @media (max-width: 700px) { .testimonials-grid { grid-template-columns: 1fr; } }
+
   /* FILTER / PERSONA */
   .filter-row { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
   .filter-group { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 200px; }
@@ -410,6 +418,21 @@
       <p>Leland helps non-technical professionals and teams learn to build with AI through cohort-based programs. The pattern that works best — by far — is bringing teams, leadership groups, or executive cohorts through together.</p>
       <p>When everyone learns to build at the same time, the curve compounds: AI champions no longer have to bear the burden of being the go-to educator, enabler, and troubleshooter for the org's AI experiments. Everyone is on the same level, using the same vocabulary, and capable of building automations and agents for their own workflows with little-to-no data/eng support.</p>
       <a href="https://ai.joinleland.com/leland-ai-builders-b2b-vica" class="about-link" target="_blank">Learn about the Teams program →</a>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="report-section">
+  <span class="section-label">What GSB alumni are saying</span>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <p class="testimonial-quote">Just wrapped the first build session and wow I am so excited! Already learned a ton and excited to see what else is possible. Will chat internally about what our AI enablement efforts are looking like.</p>
+      <span class="testimonial-attr">GSB MBA — after session 1</span>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-quote">It's very hands-on, very practical. I love it. Every session we build something useful. The two times a week cadence is perfect — moving forward fast enough but having enough time between sessions to review the materials and iterate ourselves.</p>
+      <span class="testimonial-attr">GSB MBA — mid-program</span>
     </div>
   </div>
 </div>
