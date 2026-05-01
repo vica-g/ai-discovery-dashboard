@@ -58,7 +58,18 @@
   .insight-card:first-child { border-radius: 8px 8px 0 0; }
   .insight-card:last-child  { border-radius: 0 0 8px 8px; }
   .insight-card-label { font-family: var(--font-meta); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 14px; }
-  .insight-card-title { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 600; color: var(--text-primary); margin-bottom: 20px; line-height: 1.3; }
+  .insight-card-title { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 600; color: var(--text-primary); margin-bottom: 16px; line-height: 1.3; }
+
+  /* TL;DR + ACCORDION */
+  .tldr-block { background: rgba(255,255,255,0.04); border-radius: 6px; padding: 14px 16px; margin-bottom: 0; }
+  .tldr-tag { font-family: var(--font-meta); font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-tertiary); display: inline-block; margin-bottom: 6px; }
+  .tldr-text { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
+  .insight-expand { overflow: hidden; max-height: 0; transition: max-height 0.45s cubic-bezier(0.4,0,0.2,1); }
+  .insight-expand.open { max-height: 6000px; }
+  .expand-toggle { display: flex; align-items: center; gap: 8px; margin-top: 16px; background: none; border: none; cursor: pointer; padding: 0; color: var(--accent); font-family: var(--font-meta); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; }
+  .expand-toggle:hover { opacity: 0.75; }
+  .toggle-icon { font-size: 0.75rem; transition: transform 0.3s ease; display: inline-block; }
+  .expand-toggle.open .toggle-icon { transform: rotate(180deg); }
   .insight-bullets { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
   .insight-bullets li { position: relative; padding-left: 18px; font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
   .insight-bullets li::before { content: '–'; color: var(--accent); position: absolute; left: 0; top: 0; }
@@ -224,7 +235,17 @@
     <div class="insight-card">
       <div class="insight-card-label">General insights</div>
       <div class="insight-card-title">Patterns on how to use AI most effectively for personal and professional efficiency, enablement, and competence</div>
-      <ul class="insight-bullets">
+      <div class="tldr-block">
+        <span class="tldr-tag">TL;DR</span>
+        <p class="tldr-text">AI's highest personal ROI comes from three things: connecting it to your actual work data, using it as an iterative thinking partner rather than a one-shot tool, and automating your most repetitive structured workflows. At the org level, adoption only accelerates when it's forced — optional encouragement consistently underdelivers.</p>
+      </div>
+      <button class="expand-toggle" id="toggle-patterns" onclick="toggleSection('patterns')">
+        <span class="toggle-label">Read more</span>
+        <span class="toggle-icon">↓</span>
+      </button>
+      <div class="insight-expand" id="expand-patterns">
+        <div style="height:20px"></div>
+        <ul class="insight-bullets">
         <li><strong>AI is the new "go do research on this" (n=18, all industries and functions).</strong> AI consistently replaces the first 1–3 hours of any research task — not the task itself. From VC deal screening (one firm went from 10 to 100 companies screened per hour) to first-pass market analysis and due diligence, output is treated as a starting point, not a final answer. <em>"Go do a big research project and give me all of your sources — the sources themselves tell you a lot."</em></li>
         <li><strong>Connecting AI to your actual data is the real unlock (n=16).</strong> Without CRM, database, Slack, email, and calendar connected, enterprise AI is "a glorified chatbot." With connectors, use cases compound: meeting prep, account handoffs, deal screening, and financial automation all get meaningfully faster. The most frustrated users are almost always those stuck with unconnected tools. <em>"The place I get the most value is connecting it to our data sources."</em></li>
         <li><strong>AI as always-on cognitive partner (n=14).</strong> The most effective individual users treat AI as an iterative thinking partner, not a one-shot output machine. They debate it, do a first pass, let it push back, and load it with personal context upfront. Key differentiator from basic chatbot use: the human-in-the-loop iterative loop. <em>"I debate with it a lot. I'll do a first pass, let it iterate."</em></li>
@@ -240,27 +261,48 @@
           <li><strong>Personal AI Lab at Home:</strong> One senior engineering leader built a rack-mount home server with AI managing smart shades (tracking sunrise, sunset, and sun angle), flight tracking via antenna, and home automation — treating personal life as an R&D environment for AI systems thinking.</li>
         </ul>
       </div>
+      </div><!-- /expand-patterns -->
     </div>
 
     <!-- GOTCHAS -->
     <div class="insight-card">
       <div class="insight-card-label">Gotchas, learnings, failures</div>
       <div class="insight-card-title">Things people wish they'd known earlier, mistakes that derailed AI deployments, and late realizations</div>
-      <ul class="insight-bullets">
+      <div class="tldr-block">
+        <span class="tldr-tag">TL;DR</span>
+        <p class="tldr-text">The most universal failure mode: companies get an enterprise license, point people at basic tutorials, and call it training. 90% end up using AI sporadically at best. Compliance approval delays, tool churn anxiety, and shadow IT are the next biggest friction points — all symptoms of governance moving slower than capability.</p>
+      </div>
+      <button class="expand-toggle" id="toggle-gotchas" onclick="toggleSection('gotchas')">
+        <span class="toggle-label">Read more</span>
+        <span class="toggle-icon">↓</span>
+      </button>
+      <div class="insight-expand" id="expand-gotchas">
+        <div style="height:20px"></div>
+        <ul class="insight-bullets">
         <li><strong>Enterprise tool approval is a multi-month blocking event (n=15).</strong> Six months to approve a single tool is not an outlier — it's the median experience at companies above 1,000 employees. And it compounds: tool approval, connector approval, and MCP integration approval are three separate queues. Many teams end up with enterprise licenses that are effectively useless because nothing is connected. <em>"It took us six months to get ChatGPT approved. We're hoping Claude takes less."</em></li>
         <li><strong>Access without training: the rollout that never arrives (n=14).</strong> The single most repeated deployment failure: secure a license, send a Slack message, point people at basic tutorials, consider the job done. Result: 5–10% who were already motivated adopt; 90% use it sporadically or not at all. Promising department-level tailored training that then gets cancelled is worse than saying nothing — it creates expectation, then withdraws it. <em>"When they gave us access they were like, start exploring on your own. We're gonna have department-level sessions. But nothing's actually happened yet."</em></li>
         <li><strong>Tool churn anxiety (n=10).</strong> Early adopters are often the most anxious: they invest time mastering a tool, then it gets superseded. One ops leader went all-in on Cursor, then felt behind when Claude Code became the standard months later. Practical implication: learning tools is a less durable investment than learning principles — process decomposition, context management, and iterative loops transfer; specific tool fluency doesn't. <em>"By the time I've built something, I'm like, oh, actually I could do this differently."</em></li>
         <li><strong>Shadow IT as a symptom of governance failure (n=8).</strong> Shadow AI is pervasive at organizations with strict IT governance — unapproved tools on personal accounts, off-the-books agents, recording all meetings in unapproved apps. Pattern: the more conservative the official AI policy, the more aggressive the workarounds. The individuals doing this are typically the most capable AI adopters in the org. <em>"We built an AI agent that ingested all our historical application data — off the books, off the radar. We built it kind of illegally, but we did it."</em> Addressing shadow IT requires creating legitimate fast lanes, not just stricter enforcement.</li>
         <li><strong>Generic AI courses fail because they don't map to actual workflows (n=7).</strong> The most consistent critique of existing training programs: too basic, not connected to participants' actual work, and delivered in formats that don't allow hands-on practice. Demo-only sessions, checkbox-completion gating, and generic content all produce the same outcome: low retention, no behavior change. <em>"What they were teaching was basic but not relevant. It didn't help me understand how I was using AI in my real life."</em></li>
       </ul>
+      </div><!-- /expand-gotchas -->
     </div>
 
     <!-- UPSKILLING -->
     <div class="insight-card">
       <div class="insight-card-label">Upskilling teams and organizations</div>
       <div class="insight-card-title">Existing programs, vendors, and internal approaches classmates have used to teach non-technical teams how to use AI</div>
-
-      <div class="upskilling-group">
+      <div class="tldr-block">
+        <span class="tldr-tag">TL;DR</span>
+        <p class="tldr-text">Hands-on, workflow-specific practice beats every formal training program in this dataset. The combination that actually works: a dedicated AI champion plus a recurring cadence plus a peer-sharing channel. The pattern that consistently fails: compliance-gated checkbox training with no data integration and no protected time to practice.</p>
+      </div>
+      <button class="expand-toggle" id="toggle-upskilling" onclick="toggleSection('upskilling')">
+        <span class="toggle-label">Read more</span>
+        <span class="toggle-icon">↓</span>
+      </button>
+      <div class="insight-expand" id="expand-upskilling">
+        <div style="height:20px"></div>
+        <div class="upskilling-group">
         <div class="upskilling-group-title">External programs &amp; vendors named</div>
         <table class="vendor-table">
           <tr><td>SectionAI</td><td>Mandatory async training gating enterprise ChatGPT license access. Described as checkbox-completion; few take the optional deeper courses. Low behavior change.</td></tr>
@@ -308,6 +350,7 @@
           <li><strong>Agent Productionization Pipeline:</strong> One tech company built a dedicated team that evaluates individual contributors' agents, productionizes the best ones, and distributes them org-wide via a menu. Scales the work of the most advanced builders without requiring everyone to be an expert.</li>
         </ul>
       </div>
+      </div><!-- /expand-upskilling -->
     </div>
 
   </div>
@@ -598,6 +641,15 @@ const FUNCTION_INSIGHTS = {
     ]
   }
 };
+
+function toggleSection(id) {
+  const expand = document.getElementById('expand-' + id);
+  const btn = document.getElementById('toggle-' + id);
+  const isOpen = expand.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.querySelector('.toggle-label').textContent = isOpen ? 'Show less' : 'Read more';
+  btn.querySelector('.toggle-icon').textContent = '↓';
+}
 
 function updatePersona() {
   const indSel = document.getElementById('personaSelect');
