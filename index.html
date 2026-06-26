@@ -80,6 +80,23 @@
   td.internal { color: #64748b; font-weight: 600; }
   .section { background: #fff; border-radius: 10px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 24px; }
   .note { font-size: 12px; color: #718096; margin-top: 4px; }
+  /* Collapsible sections */
+  details.dropdown { margin: 10px 0; border-top: 1px solid #e2e8f0; }
+  details.dropdown > summary { list-style: none; cursor: pointer; font-size: 20px; font-weight: 600; color: #1a1a2e; padding: 18px 0; display: flex; align-items: center; gap: 10px; }
+  details.dropdown > summary::-webkit-details-marker { display: none; }
+  details.dropdown > summary::before { content: '▶'; font-size: 12px; color: #718096; transition: transform .15s ease; }
+  details.dropdown[open] > summary::before { transform: rotate(90deg); }
+  details.dropdown > summary:hover { color: #4299e1; }
+  .dropdown-body { padding-bottom: 12px; }
+  .profile-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
+  .profile { border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px; background: #fff; }
+  .profile h4 { font-size: 15px; margin-bottom: 12px; color: #1a1a2e; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .profile .tier { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; padding: 2px 8px; border-radius: 999px; }
+  .profile .tier.t1 { background: #1a7a3a; color: #fff; }
+  .profile .tier.t2 { background: #c6f6d5; color: #22543d; }
+  .profile dl { display: grid; grid-template-columns: auto 1fr; gap: 5px 12px; font-size: 12.5px; line-height: 1.5; }
+  .profile dt { color: #718096; font-weight: 600; white-space: nowrap; }
+  .profile dd { color: #1a1a2e; }
 </style>
 </head>
 <body>
@@ -105,7 +122,10 @@
 
 <div class="container">
 
-  <h2>Dimension Breakdowns</h2>
+  <details class="dropdown">
+    <summary>Dimension Breakdowns</summary>
+    <div class="dropdown-body">
+
 
   <div class="legend">
     <span style="font-weight:600; margin-right:4px;">ICP proximity:</span>
@@ -119,8 +139,13 @@
   </div>
 
   <div class="grid" id="dim-grid"></div>
+    </div>
+  </details>
 
-  <h2>Contact Log</h2>
+  <details class="dropdown">
+    <summary>Contact Log</summary>
+    <div class="dropdown-body">
+
   <div class="table-wrap">
     <table>
       <thead>
@@ -140,54 +165,152 @@
       <tbody id="contact-log"></tbody>
     </table>
   </div>
+    </div>
+  </details>
 
-  <h2>Converted Contracts — Weighted by Seats (n=7)</h2>
+  <details class="dropdown">
+    <summary>B2B Buyer Profiles</summary>
+    <div class="dropdown-body">
+
   <div class="section">
-    <p style="font-size:14px; line-height:1.7; color:#2d3748; margin-bottom:12px;">Seven discovery calls became real B2B contracts. Weighted by seats actually purchased — not a flat buyer count — they tier clearly. <strong>Single-seat pilots that never expanded, and individuals who self-paid one seat, are not counted as contracts here</strong> — they are a far weaker ICP signal and routinely get over-counted.</p>
-    <ul style="font-size:14px; line-height:1.8; padding-left:20px; color:#2d3748;">
-      <li><strong>Tier 1 — multi-seat / company-wide:</strong> Udit/Ethisphere (62 seats), Mansoor/Stepful, Karim/Rondo Energy, Cassie/Rainforest Builder, Christian/Flynn Group (a stalled prospect who converted to multiple seats after a peer's review).</li>
-      <li><strong>Tier 2 — team-level:</strong> Karen/Ammobia, Sarah Runkle/Outset.</li>
-      <li><strong>Single-seat pilots that did NOT convert (weak signal — not ICP-defining):</strong> Andrew/Datavant, Johanna/Howgood. Both were previously mis-counted as B2B wins.</li>
-      <li><strong>Individual self-pay — one seat for themselves (weakest signal):</strong> Iana (Rippling, IC), Amanda (Sierra), Omar (Sector Seven), Zeinab (AppFolio), Elena (Placer), John Foye (Working Trees), Aidan (Rula — confirm whether org-level). Useful as warm leads, not as proof of org demand.</li>
-    </ul>
+    <p style="font-size:14px; line-height:1.7; color:#2d3748; margin-bottom:16px;">The companies that bought at team or company-wide scale — the closest matches to the target profile. Tier reflects seats purchased and expansion to date.</p>
+    <div class="profile-grid">
+
+      <div class="profile">
+        <h4>Ethisphere <span class="tier t1">Tier 1</span></h4>
+        <dl>
+          <dt>Industry</dt><dd>Ethics &amp; compliance software (professional services)</dd>
+          <dt>Size</dt><dd>50–249</dd>
+          <dt>Buyer</dt><dd>Chief Revenue Officer</dd>
+          <dt>Seats</dt><dd>62</dd>
+          <dt>Levels</dt><dd>L1–L3, rolled out in waves</dd>
+          <dt>Expansion</dt><dd>Champion piloted L1 himself → company-wide rollout to ~95% of non-technical staff; repeat L2 waves</dd>
+          <dt>Why they bought</dt><dd>A leader experienced it firsthand and used it as a forcing function for the org; no internal AI trainer</dd>
+        </dl>
+      </div>
+
+      <div class="profile">
+        <h4>Flynn Group <span class="tier t1">Tier 1</span></h4>
+        <dl>
+          <dt>Industry</dt><dd>Restaurant operator (food &amp; beverage / QSR)</dd>
+          <dt>Size</dt><dd>10,000+</dd>
+          <dt>Buyer</dt><dd>Director, Corporate Development</dd>
+          <dt>Seats</dt><dd>Multiple, expanding</dd>
+          <dt>Expansion</dt><dd>Initially stalled, then converted to multiple seats after seeing a peer's review</dd>
+          <dt>Why they bought</dt><dd>Large non-technical back office with no internal AI trainer; peer proof tipped the decision</dd>
+        </dl>
+      </div>
+
+      <div class="profile">
+        <h4>Stepful <span class="tier t1">Tier 1</span></h4>
+        <dl>
+          <dt>Industry</dt><dd>Healthcare education / EdTech</dd>
+          <dt>Size</dt><dd>50–249</dd>
+          <dt>Buyer</dt><dd>Operations Lead</dd>
+          <dt>Seats</dt><dd>Team rollout</dd>
+          <dt>Why they bought</dt><dd>No internal AI champion to build the training themselves</dd>
+        </dl>
+      </div>
+
+      <div class="profile">
+        <h4>Rondo Energy <span class="tier t1">Tier 1</span></h4>
+        <dl>
+          <dt>Industry</dt><dd>Cleantech (heat batteries)</dd>
+          <dt>Size</dt><dd>50–249</dd>
+          <dt>Buyer</dt><dd>COO</dd>
+          <dt>Seats</dt><dd>Core team + CEO/CTO</dd>
+          <dt>Levels</dt><dd>Targeting through L3</dd>
+          <dt>Why they bought</dt><dd>Enterprise Claude already licensed; wanted a structured path from chatbot use to agents</dd>
+        </dl>
+      </div>
+
+      <div class="profile">
+        <h4>Rainforest Builder <span class="tier t1">Tier 1</span></h4>
+        <dl>
+          <dt>Industry</dt><dd>Cleantech (carbon / conservation)</dd>
+          <dt>Size</dt><dd>10–49</dd>
+          <dt>Buyer</dt><dd>BD / Marketing / Design</dd>
+          <dt>Seats</dt><dd>Multi-seat</dd>
+          <dt>Why they bought</dt><dd>No internal owner for AI integration; had a professional-development budget to deploy</dd>
+        </dl>
+      </div>
+
+      <div class="profile">
+        <h4>Ammobia <span class="tier t2">Tier 2</span></h4>
+        <dl>
+          <dt>Industry</dt><dd>Cleantech / deep tech</dd>
+          <dt>Size</dt><dd>10–49</dd>
+          <dt>Buyer</dt><dd>Co-Founder &amp; CEO</dd>
+          <dt>Seats</dt><dd>Team-level</dd>
+          <dt>Why they bought</dt><dd>Clear, unmistakable team-level upskilling need</dd>
+        </dl>
+      </div>
+
+      <div class="profile">
+        <h4>Outset <span class="tier t2">Tier 2</span></h4>
+        <dl>
+          <dt>Industry</dt><dd>Tech (AI research platform)</dd>
+          <dt>Size</dt><dd>10–49</dd>
+          <dt>Buyer</dt><dd>Head of Customer Org</dd>
+          <dt>Seats</dt><dd>Team-level, new-joiner cohorts</dd>
+          <dt>Why they bought</dt><dd>Enterprise Claude licensed; onboarding new joiners; a GTM hackathon as the forcing function</dd>
+        </dl>
+      </div>
+
+    </div>
   </div>
+    </div>
+  </details>
 
-  <h2>Emerging Patterns (n=66)</h2>
+  <details class="dropdown">
+    <summary>Emerging Patterns</summary>
+    <div class="dropdown-body">
+
   <div class="section">
     <ul style="font-size:14px; line-height:1.8; padding-left:20px; color:#2d3748;">
-      <li><strong>Company size does NOT predict who buys — workforce shape does (n=7 contracts):</strong> contracts span 10–49 employees (Rainforest, Ammobia, Outset) to 50–249 (Ethisphere, Stepful, Rondo) to 10,000+ (Flynn). The common thread isn't headcount — it's a large non-technical workforce with no internal AI trainer. The one big prospect that didn't convert (Datavant, 10k+) failed on fit, not size.</li>
+      <li><strong>Company size does NOT predict who buys — workforce shape does:</strong> contracts span 10–49 employees (Rainforest, Ammobia, Outset) and 50–249 (Ethisphere, Stepful, Rondo) all the way to 10,000+ (Flynn). The constant isn't headcount — it's a large non-technical workforce (ops, finance, legal, support, marketing) with no one internally who owns AI training.</li>
       <li><strong>"Can't build the training in-house" = strongest closing signal (3 of 7 contracts):</strong> Stepful (no AI champion), Rainforest Builder (no AI integration owner), Flynn (huge QSR back office, no internal trainer). When there's no one internally who could build it, the deal closes without an ROI debate.</li>
       <li><strong>Peer / social proof converts fence-sitters (new):</strong> Christian at Flynn was an active-but-stalled prospect who bought multiple seats after seeing a peer's review. Reference selling — putting a comparable buyer's results in front of a hesitant one — is a distinct, high-leverage motion worth building into follow-up.</li>
-      <li><strong>Every contract sits with Ops / GTM / Strategy / Founder + budget authority (n=7):</strong> Udit (Strategy, VP→CEO), Mansoor (Ops), Karim (COO), Cassie (BD/Marketing), Christian (Corp Dev/Strategy), Karen (Co-Founder/CEO), Sarah Runkle (Head of Customer Org). Manager-level contacts consistently route elsewhere rather than buying.</li>
-      <li><strong>Competency stage is NOT predictive — correcting a prior finding:</strong> across the 7 contracts it's an even 4 chatbot (Udit, Mansoor, Cassie, Christian) / 3 automating (Karim, Karen, Sarah). The earlier "chatbot-level = most likely to buy" was an artifact of counting individual self-payers, who skew chatbot. L1 is still the right entry point, but AI stage doesn't qualify a buyer.</li>
-      <li><strong>Enterprise license without training = an entry point, not a close:</strong> Rondo and Outset were enterprise-licensed and converted; several licensed-but-neglected orgs engaged and did NOT close (Datavant, Asurion, Activision, Gusto, AppFolio). The license opens the door — a forcing function or peer proof closes it.</li>
+      <li><strong>Every contract sits with Ops / GTM / Strategy / Founder + budget authority:</strong> Udit (Strategy, VP→CEO), Mansoor (Ops), Karim (COO), Cassie (BD/Marketing), Christian (Corp Dev/Strategy), Karen (Co-Founder/CEO), Sarah Runkle (Head of Customer Org). Manager-level contacts consistently route elsewhere rather than buying.</li>
+      <li><strong>AI maturity isn't a qualifier:</strong> buyers split evenly between chatbot-stage and early-automating users. Level 1 is the right entry point either way — what matters is the team mandate, not how advanced they already are.</li>
+      <li><strong>An enterprise license is the opening, not the close:</strong> companies that have rolled out Claude or ChatGPT but never paired it with training are warm — but the license alone rarely converts. A forcing function (hackathon, offsite, new-joiner cohort) or a peer's proof is what turns interest into a purchase. Rondo and Outset both bought off the back of exactly this gap.</li>
       <li><strong>Fund/portfolio distribution = highest-ceiling channel (n≥4, growing):</strong> Nick (Growth Street, 10 portcos), Michael (Riverspan, 3), Abigail (Breakthrough Energy, ~80), Levi (Viking, 15 biotech portcos, $50k compressed L1). ~13 investor-role contacts now in the dataset; one fund relationship can unlock many companies. Not yet a closed contract — track as its own motion.</li>
       <li><strong>InfoSec pre-approval = onboarding friction worth systematizing:</strong> Johanna (Howgood), Christian (Flynn), and Aidan (Rula) all flagged compliance timelines. Submit a scoped connector list to InfoSec <em>before</em> day 1. With multiple live B2B deals, a pre-cohort security checklist is standard.</li>
     </ul>
   </div>
+    </div>
+  </details>
 
-  <h2>Emerging ICP</h2>
+  <details class="dropdown">
+    <summary>Emerging ICP</summary>
+    <div class="dropdown-body">
+
   <div class="section">
     <ul style="font-size:14px; line-height:1.8; padding-left:20px; color:#2d3748;">
       <li><strong>Org — defined by workforce shape, not headcount:</strong> real contracts span 10 to 10,000+ employees. Common thread: a sizable non-technical workforce (ops, finance, legal, support, marketing), no dedicated internal AI trainer (no L&D, or one person stretched thin), and often an enterprise license already deployed without structured training. Rainforest (10–49) and Flynn (10,000+) are both Tier 1 — size is not a qualifier.</li>
-      <li><strong>Persona:</strong> Director-level or above in Operations, GTM, or Strategy — or a Founder — with direct or fast budget authority, personally using AI daily (chatbot to early-automating). Individual contributors who self-pay one seat (e.g., Iana at Rippling) are a weak signal and should not be read as org demand.</li>
-      <li><strong>Weight by seats, not buyer count:</strong> a flat "15 buyers" overstates demand. The ICP is built on the 7 real contracts — and within those, the Tier 1 multi-seat deals (Ethisphere 62, Stepful, Rondo, Rainforest, Flynn). Single-seat pilots that didn't expand (Datavant, Howgood) and individual self-pay are much weaker, and tracked separately.</li>
+      <li><strong>Persona:</strong> Director-level or above in Operations, GTM, or Strategy — or a Founder — with direct or fast budget authority, personally using AI daily (chatbot to early-automating). Manager-level contacts tend to route the decision upward rather than buy directly, so aim higher.</li>
       <li><strong>Buying triggers (across 7 contracts):</strong> no internal AI trainer; a forcing function (hackathon, offsite, new-joiner cohort); a peer/reference who has already bought; or an enterprise license that hasn't translated into adoption.</li>
-      <li><strong>Red flags:</strong> tech-forward CEO or CTO who will self-serve enablement; sub-20-person org where AI knowledge transfers informally; fully managed IT that blocks third-party tools (Blackstone BXAI, AlphaSense-only firms). <strong>Healthcare is not yet validated as a vertical</strong> — there is no closed healthcare contract (Datavant didn't convert; Rula was an individual self-pay).</li>
+      <li><strong>Red flags (deprioritize):</strong> a tech-forward CEO or CTO who will self-serve enablement; sub-20-person orgs where AI knowledge spreads informally; fully-managed IT environments that block third-party tools.</li>
     </ul>
   </div>
+    </div>
+  </details>
 
-  <h2>Methodology Builds</h2>
+  <details class="dropdown">
+    <summary>Methodology Builds</summary>
+    <div class="dropdown-body">
+
   <div class="section">
     <ul style="font-size:14px; line-height:1.8; padding-left:20px; color:#2d3748;">
-      <li><strong>Healthcare — not yet validated (0 contracts):</strong> the earlier "n=2 buyers" rested on Datavant (didn't convert) and Rula (individual self-pay), so there is no closed healthcare contract yet. Still worth pursuing deliberately — regulated orgs with large non-technical workforces where "go play with the enterprise license" has visibly failed — but don't claim it as proven.</li>
-      <li><strong>Fund/portfolio distribution = dedicated sales motion (n≥4, growing):</strong> Nick (Growth Street, 10 portcos), Michael (Riverspan, 3), Abigail (Breakthrough Energy, ~80), Levi (Viking, 15 biotech portcos, $50k compressed L1) — plus ~9 more investor-role contacts. BEV's ~80-company portfolio is the single largest potential play. Worth a distinct pitch, pricing, and onboarding from direct B2B. Note: high ceiling, but not yet a closed contract.</li>
+      <li><strong>Healthcare = high-potential, worth pursuing:</strong> regulated orgs (HIPAA) with large non-technical workforces, where a top-down "go use the enterprise license" approach has visibly failed, are a strong target — compliance slows the cycle but doesn't kill it.</li>
+      <li><strong>Fund / portfolio distribution = its own motion:</strong> a single fund relationship can unlock training across an entire portfolio — Growth Street (10 companies), Riverspan (3), Breakthrough Energy (~80), Viking (15 biotech). This warrants a distinct pitch, pricing, and onboarding from direct B2B.</li>
       <li><strong>Peer proof / reference selling = build it into the motion (new):</strong> Flynn converted to multiple seats after a peer's review turned a stalled prospect around. A structured reference step — matching a hesitant buyer to a comparable one who has already succeeded — should be a standard follow-up play.</li>
       <li><strong>Hackathons / offsites as forcing functions = high-conversion qualifier:</strong> Sarah Runkle (Outset) converted around a GTM hackathon; Stephen Rickli (Zip) has a 13-person GTM ops offsite within a month, active. Ask every prospect whether a hackathon or offsite is on the roadmap.</li>
-      <li><strong>Channel-partner motions taking distinct shapes (n=3):</strong> Jim (US enterprise via cybersecurity partners), Metin (Turkish market via former CIO of Turkish Airlines), and Jordan Davidson (Aspen Medal — 250+ SMB HR/payroll clients; AI training as a bundled employee benefit). Each has different economics — track separately.</li>
-      <li><strong>"Paid for AI training that didn't stick" = high-intent signal (n=2):</strong> Eliane (Innova) paid out of pocket for a course that "never stuck"; Mackenzie (Clarify) spent $600 on Recalc AI. Both primed for applied, workflow-specific instruction.</li>
+      <li><strong>Channel-partner motions taking distinct shapes:</strong> Jim (US enterprise via cybersecurity partners), Metin (Turkish market via former CIO of Turkish Airlines), and Jordan Davidson (Aspen Medal — 250+ SMB HR/payroll clients; AI training as a bundled employee benefit). Each has different economics — track separately.</li>
+      <li><strong>"Paid for AI training that didn't stick" = high-intent signal:</strong> Eliane (Innova) paid out of pocket for a course that "never stuck"; Mackenzie (Clarify) spent $600 on Recalc AI. Both primed for applied, workflow-specific instruction.</li>
     </ul>
-  </div>
+  </div>    </div>
+  </details>
 
 </div>
 </div>
